@@ -106,8 +106,8 @@ export function Hero() {
             </motion.div>
 
             {/* Main Headline */}
-            <motion.div variants={itemVariants} className="space-y-2">
-              <h1 className="text-2xl sm:text-3xl lg:text-[2.35rem] xl:text-[2.65rem] font-extrabold text-primary-text tracking-tight leading-[1.15] md:leading-[1.13]">
+            <motion.div variants={itemVariants} className="space-y-6">
+              <h1 className="text-2xl sm:text-3xl lg:text-[2.35rem] xl:text-[2.65rem] font-extrabold text-primary-text tracking-tight leading-normal ">
                 {t(profile.heroHeading)}{" "}
                 <span className="relative inline-block text-terracotta">
                   <span className="relative z-10">
@@ -128,7 +128,7 @@ export function Hero() {
             {/* Primary Dual CTAs */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-wrap items-center gap-3 pt-0.5"
+              className="flex flex-wrap lg:flex-nowrap items-center gap-3 pt-0.5"
             >
               {/* WhatsApp Direct CTA */}
               <a
