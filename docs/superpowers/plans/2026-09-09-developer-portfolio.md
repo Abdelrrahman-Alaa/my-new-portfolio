@@ -119,11 +119,11 @@ git add context/ components/Providers.tsx app/layout.tsx && git commit -m "feat:
 - Create: `components/Navbar.tsx`
 - Modify: `app/page.tsx`
 
-- [ ] **Step 1: بناء شريط التنقل المتجاوب (Desktop + Mobile Drawer)**
+- [x] **Step 1: بناء شريط التنقل المتجاوب (Desktop + Mobile Drawer)**
 عرض اللوجو الشخصي، روابط الأقسام السريعة، زر تبديل اللغة (عربي / EN)، وزر الثيم (Dark/Light).
-- [ ] **Step 2: إضافة تأثير زجاجي ناعم (Backdrop Blur) مع سكرول الصفحة**
-- [ ] **Step 3: التحقق من عمل القائمة على شاشات الموبايل والديسكتوب وعكس اتجاهها مع الـ RTL**
-- [ ] **Step 4: Commit لمكون الـ Navbar**
+- [x] **Step 2: إضافة تأثير زجاجي ناعم (Backdrop Blur) مع سكرول الصفحة**
+- [x] **Step 3: التحقق من عمل القائمة على شاشات الموبايل والديسكتوب وعكس اتجاهها مع الـ RTL**
+- [x] **Step 4: Commit لمكون الـ Navbar**
 ```bash
 git add components/Navbar.tsx && git commit -m "feat: build responsive bilingual navbar with theme and language toggles"
 ```

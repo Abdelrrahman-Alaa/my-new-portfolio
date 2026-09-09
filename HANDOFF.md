@@ -49,13 +49,22 @@
 
 ---
 
+- [x] **Task 5: Navbar & Header (DONE & COMMITTED - commit 02abacb)**
+  - Built responsive bilingual `components/Navbar.tsx` with logo ("عبدالرحمن."), navigation links, language & theme toggles, and WhatsApp direct CTA.
+  - Implemented smooth backdrop-blur on scroll with optimized `requestAnimationFrame` and passive event listener.
+  - Added mobile navigation drawer with backdrop overlay, body-scroll lock, and instant RTL/LTR support.
+  - Verified across Desktop (1280px) and Mobile (390px) viewports with browser subagent.
+  - Production static build `pnpm run build` succeeds cleanly with zero errors.
+
+---
+
 ## 3. Immediate Next Task
-- [ ] **Task 5: Navbar & Header (READY TO START PENDING USER CONFIRMATION)**
-  - Build responsive bilingual `components/Navbar.tsx` (Desktop + Mobile Drawer).
-  - Integrate personal branding, navigation anchor links, language switch button, and theme switch button.
-  - Add frosted glass backdrop-blur effect on page scroll.
-  - Verify on mobile & desktop viewports with RTL mirroring.
-  - Commit and request user review before proceeding to Task 6.
+- [ ] **Task 6: Hero Section (READY TO START PENDING USER CONFIRMATION)**
+  - Create `components/Hero.tsx` with customer-focused headline, value proposition, and trust metrics.
+  - Implement Dual CTAs: Primary "استعرض أعمالي" (smooth scroll) + Secondary "محادثة سريعة عبر واتساب".
+  - Integrate trust metric cards (100/100 Lighthouse, 100% Mobile, 0 Delays).
+  - Add tasteful, subtle Framer Motion micro-animations respecting reduced motion.
+  - Commit and request user review before proceeding to Task 7.
 
 ---
 
