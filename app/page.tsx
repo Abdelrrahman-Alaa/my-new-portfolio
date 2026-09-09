@@ -4,81 +4,25 @@ import { useLanguage } from "@/context/LanguageContext";
 import { useTheme } from "@/context/ThemeContext";
 import { portfolioData } from "@/data/portfolio";
 import { Navbar } from "@/components/Navbar";
-import { ArrowRight, ArrowLeft, CheckCircle2, MessageSquare } from "lucide-react";
-import { getWhatsAppUrl } from "@/lib/utils";
+import { Hero } from "@/components/Hero";
+import { CheckCircle2 } from "lucide-react";
 
 export default function Home() {
-  const { locale, dir, isRTL, t } = useLanguage();
+  const { locale, dir, t } = useLanguage();
   const { theme } = useTheme();
-  const { profile, projects, services } = portfolioData;
-
-  const ArrowIcon = isRTL ? ArrowLeft : ArrowRight;
+  const { projects, services } = portfolioData;
 
   return (
     <div className="min-h-screen flex flex-col bg-canvas text-primary-text transition-colors duration-200">
-      {/* Universal Fixed Responsive Navbar */}
+      {/* Fixed Responsive Navbar */}
       <Navbar />
 
-      {/* Main Content with top padding for fixed navbar */}
-      <main className="flex-1 pt-28 pb-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full space-y-16">
-        {/* Hero Preview Section */}
-        <section className="p-8 md:p-12 rounded-3xl bg-surface border border-border-subtle shadow-xs space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-terracotta/10 text-terracotta text-sm font-semibold">
-            <span className="w-2 h-2 rounded-full bg-terracotta" />
-            {t(profile.heroBadge)}
-          </div>
+      {/* Main Content Area */}
+      <main className="flex-1 pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full space-y-16 sm:space-y-24">
+        {/* Dedicated Hero Section Component */}
+        <Hero />
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary-text tracking-tight leading-tight">
-            {t(profile.heroHeading)}{" "}
-            <span className="text-terracotta underline decoration-terracotta/30 underline-offset-8">
-              {t(profile.heroHighlight)}
-            </span>
-          </h1>
-
-          <p className="text-secondary-text text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl">
-            {t(profile.heroSubheading)}
-          </p>
-
-          {/* Action Buttons */}
-          <div className="flex flex-wrap items-center gap-4 pt-2">
-            <a
-              href={getWhatsAppUrl(profile.contact.whatsappNumber, t(profile.contact.whatsappMessage))}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-whatsapp hover:bg-whatsapp-hover text-white font-bold text-sm transition-all shadow-sm hover:shadow-md cursor-pointer"
-            >
-              <MessageSquare className="w-4 h-4 fill-white" />
-              <span>{locale === "ar" ? "محادثة فورية عبر واتساب" : "Direct WhatsApp Chat"}</span>
-            </a>
-
-            <a
-              href="#projects"
-              className="flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-surface-hover hover:bg-border-subtle text-primary-text border border-border-subtle font-semibold text-sm transition-all cursor-pointer"
-            >
-              <span>{locale === "ar" ? "استعراض المشاريع" : "View Projects"}</span>
-              <ArrowIcon className="w-4 h-4 text-terracotta" />
-            </a>
-          </div>
-
-          {/* Trust Metrics Bar */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-border-subtle">
-            {profile.trustMetrics.map((metric) => (
-              <div key={metric.id} className="p-4 rounded-xl bg-canvas border border-border-subtle space-y-1">
-                <div className="text-2xl font-extrabold text-terracotta font-jakarta">
-                  {metric.value}
-                </div>
-                <div className="font-bold text-primary-text text-sm">
-                  {t(metric.label)}
-                </div>
-                <div className="text-xs text-secondary-text">
-                  {t(metric.sublabel)}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Featured Projects Section */}
+        {/* Featured Projects Preview (Will be replaced in Task 7) */}
         <section className="space-y-6" id="projects">
           <div className="flex items-center justify-between">
             <h2 className="text-2xl sm:text-3xl font-bold text-primary-text">
@@ -132,7 +76,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Services Section */}
+        {/* Services Section Preview (Will be replaced in Task 8) */}
         <section className="space-y-6" id="services">
           <h2 className="text-2xl sm:text-3xl font-bold text-primary-text">
             {locale === "ar" ? "خدمات البيزنس المباشرة" : "Business-Focused Services"}
@@ -166,7 +110,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Footer info & active status */}
+        {/* Footer info & status */}
         <footer id="contact" className="p-4 rounded-xl bg-surface border border-border-subtle text-xs text-secondary-text flex flex-wrap items-center justify-between gap-2">
           <div>
             <span>Locale: </span>
@@ -177,7 +121,7 @@ export default function Home() {
             <strong className="text-primary-text capitalize">{theme}</strong>
           </div>
           <div className="font-mono text-terracotta">
-            Navbar & Header Active
+            Hero Section Active
           </div>
         </footer>
       </main>
