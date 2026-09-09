@@ -217,14 +217,14 @@ git add components/Contact.tsx components/Footer.tsx && git commit -m "feat: bui
 - Modify: `app/page.tsx`
 - Audit: أداء Lighthouse وفحص الـ Static Export
 
-- [ ] **Step 1: تجميع كافة المكونات داخل `app/page.tsx`**
-- [ ] **Step 2: تنفيذ أمر البناء الثابت والتأكد من توليد ملفات الـ Static Export بنجاح**
+- [x] **Step 1: تجميع كافة المكونات داخل `app/page.tsx`**
+- [x] **Step 2: تنفيذ أمر البناء الثابت والتأكد من توليد ملفات الـ Static Export بنجاح**
 ```bash
-npm run build
+pnpm run build
 ```
-- [ ] **Step 3: فحص الموقع على أبعاد الشاشات المختلفة (Mobile 375px, Tablet 768px, Desktop 1280px)**
-- [ ] **Step 4: فحص درجات Google Lighthouse والتأكد من تحقيق سرعة فائقة 98-100/100**
-- [ ] **Step 5: تسليم التقرير النهائي واستعراض النتيجة مع المستخدم**
+- [x] **Step 3: فحص الموقع على أبعاد الشاشات المختلفة (Mobile 375px, Tablet 768px, Desktop 1280px)**
+- [x] **Step 4: فحص درجات Google Lighthouse والتأكد من تحقيق سرعة فائقة 98-100/100**
+- [x] **Step 5: تسليم التقرير النهائي واستعراض النتيجة مع المستخدم**
 
 ---
 
