@@ -170,10 +170,10 @@ git add components/Projects.tsx && git commit -m "feat: build responsive filtera
 **Files:**
 - Create: `components/Services.tsx`
 
-- [ ] **Step 1: بناء كروت الخدمات الثلاثة المعتمدة بلغة واضحة وودودة**
+- [x] **Step 1: بناء كروت الخدمات الثلاثة المعتمدة بلغة واضحة وودودة**
 (بناء المواقع التعريفية، المتاجر الإلكترونية وحلول واتساب، تسريع وصيانة المواقع).
-- [ ] **Step 2: إضافة أيقونات Lucide React المناسبة لكل خدمة مع لمسات هوفر ناعمة**
-- [ ] **Step 3: Commit لقسم الخدمات**
+- [x] **Step 2: إضافة أيقونات Lucide React المناسبة لكل خدمة مع لمسات هوفر ناعمة**
+- [x] **Step 3: Commit لقسم الخدمات**
 ```bash
 git add components/Services.tsx && git commit -m "feat: create outcome-focused business services section"
 ```
