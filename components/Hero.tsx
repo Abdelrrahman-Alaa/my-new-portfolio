@@ -56,7 +56,7 @@ export function Hero() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="max-w-4xl mx-auto space-y-8 md:space-y-10"
+        className="w-full space-y-8 md:space-y-10"
       >
         {/* Availability Badge */}
         <motion.div variants={itemVariants} className="flex items-center">
@@ -71,7 +71,7 @@ export function Hero() {
         </motion.div>
 
         {/* Main Headline */}
-        <motion.div variants={itemVariants} className="space-y-4">
+        <motion.div variants={itemVariants} className="space-y-4 max-w-4xl">
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-primary-text tracking-tight leading-[1.2] md:leading-[1.15]">
             {t(profile.heroHeading)}{" "}
             <span className="relative inline-block text-terracotta">
