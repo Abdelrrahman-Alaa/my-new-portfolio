@@ -14,6 +14,8 @@ import {
   Calendar,
   FolderCheck,
   HeartHandshake,
+  ShieldCheck,
+  Terminal,
 } from "lucide-react";
 
 export function About() {
@@ -108,94 +110,127 @@ export function About() {
         </h2>
         <p className="text-secondary-text text-sm sm:text-base leading-relaxed">
           {locale === "ar"
-            ? "تعرف على فلسفة العمل، معايير الجودة، والتقنيات البرمجية التي أعتمد عليها في بناء مشاريعك."
-            : "Explore the development philosophy, quality benchmarks, and battle-tested technologies powering your projects."}
+            ? "فلسفة عمل تركز على القيمة، مدعومة بخبرة عملية مثبتة وترسانة برمجية حديثة."
+            : "A value-first engineering philosophy backed by proven delivery metrics and modern tooling."}
         </p>
       </div>
 
-      {/* Main Content Grid: Narrative Story vs Categorized Skills */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-        {/* Left Column: Narrative Bio & Trust Stats (7 cols) */}
+      {/* Part 1: Symmetrical Two-Column Card Layout (Story + Track Record) */}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-40px" }}
+        className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch"
+      >
+        {/* Narrative Card (7 cols) */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-40px" }}
-          className="lg:col-span-6 space-y-8"
+          variants={itemVariants}
+          className="lg:col-span-7 flex flex-col justify-between p-6 sm:p-8 rounded-3xl bg-surface border border-border-subtle shadow-xs space-y-6"
         >
-          {/* Narrative Card */}
-          <motion.div
-            variants={itemVariants}
-            className="p-6 sm:p-8 rounded-3xl bg-surface border border-border-subtle shadow-xs space-y-5"
-          >
+          <div className="space-y-4">
             <div className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-terracotta">
               <Sparkles className="w-4 h-4" />
               <span>{locale === "ar" ? "فلسفة العمل والمنهجية" : "Engineering Philosophy"}</span>
             </div>
 
-            <div className="space-y-4 text-secondary-text text-sm sm:text-base leading-relaxed">
+            <div className="space-y-3.5 text-secondary-text text-sm sm:text-base leading-relaxed">
               {(profile.aboutBio[locale] || profile.aboutBio.ar).map((paragraph, idx) => (
-                <p key={idx} className="relative">
-                  {paragraph}
-                </p>
+                <p key={idx}>{paragraph}</p>
               ))}
             </div>
+          </div>
 
-            {/* Core Commitments Checklist */}
-            <div className="pt-4 border-t border-border-subtle grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {[
-                { ar: "كود نظيف وقابل للتوسع", en: "Clean, Scalable Architecture" },
-                { ar: "سرعة تحميل خارقة 100/100", en: "Sub-second 100/100 Speed" },
-                { ar: "توافق مثالي مع كل الشاشات", en: "Flawless Multi-Device UI" },
-                { ar: "التزام كامل بمواعيد التسليم", en: "Strict Milestone Punctuality" },
-              ].map((item, idx) => (
-                <div key={idx} className="flex items-center gap-2 text-xs font-bold text-primary-text">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-whatsapp shrink-0" />
-                  <span>{item[locale] || item.ar}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Stats Cards Row */}
-          <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {stats.map((stat) => {
-              const IconComponent = stat.icon;
-
-              return (
-                <div
-                  key={stat.id}
-                  className="p-5 rounded-2xl bg-surface border border-border-subtle shadow-xs space-y-2 hover:border-terracotta/30 transition-colors"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="text-3xl sm:text-4xl font-extrabold text-terracotta font-jakarta tracking-tight">
-                      {stat.value}
-                    </span>
-                    <div className="p-2 rounded-xl bg-canvas text-secondary-text">
-                      <IconComponent className="w-4 h-4" />
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-xs sm:text-sm font-bold text-primary-text leading-snug">
-                      {stat.label[locale] || stat.label.ar}
-                    </h3>
-                    <p className="text-[11px] text-secondary-text mt-0.5">
-                      {stat.sublabel[locale] || stat.sublabel.ar}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </motion.div>
+          {/* Commitments Bar */}
+          <div className="pt-4 border-t border-border-subtle grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            {[
+              { ar: "كود نظيف وقابل للتوسع المستقبلي", en: "Clean, Scalable Architecture" },
+              { ar: "سرعة تحميل خارقة 100/100", en: "Sub-second 100/100 Speed" },
+              { ar: "توافق كامل مع مختلف الشاشات", en: "Flawless Multi-Device UI" },
+              { ar: "التزام صارم بمواعيد التسليم", en: "Strict Milestone Punctuality" },
+            ].map((item, idx) => (
+              <div key={idx} className="flex items-center gap-2 text-xs font-bold text-primary-text">
+                <CheckCircle2 className="w-3.5 h-3.5 text-whatsapp shrink-0" />
+                <span>{item[locale] || item.ar}</span>
+              </div>
+            ))}
+          </div>
         </motion.div>
 
-        {/* Right Column: Categorized Technical Skills (5 cols) */}
+        {/* Track Record & Trust Stats Card (5 cols) */}
+        <motion.div
+          variants={itemVariants}
+          className="lg:col-span-5 flex flex-col justify-between p-6 sm:p-8 rounded-3xl bg-surface border border-border-subtle shadow-xs space-y-6"
+        >
+          <div className="space-y-5">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-terracotta">
+              <ShieldCheck className="w-4 h-4" />
+              <span>{locale === "ar" ? "أرقام وإحصائيات الثقة" : "Track Record & Trust"}</span>
+            </div>
+
+            {/* Vertically Stacked Stat Blocks */}
+            <div className="space-y-4">
+              {stats.map((stat) => {
+                const IconComponent = stat.icon;
+
+                return (
+                  <div
+                    key={stat.id}
+                    className="p-4 rounded-2xl bg-canvas border border-border-subtle flex items-center justify-between gap-4 hover:border-terracotta/30 transition-colors"
+                  >
+                    <div className="space-y-0.5">
+                      <div className="text-xs sm:text-sm font-bold text-primary-text">
+                        {stat.label[locale] || stat.label.ar}
+                      </div>
+                      <div className="text-[11px] text-secondary-text">
+                        {stat.sublabel[locale] || stat.sublabel.ar}
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 shrink-0">
+                      <span className="text-3xl font-extrabold text-terracotta font-jakarta tracking-tight">
+                        {stat.value}
+                      </span>
+                      <div className="p-2 rounded-xl bg-surface border border-border-subtle text-secondary-text hidden sm:flex">
+                        <IconComponent className="w-4 h-4" />
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Partnership Assurance Footer */}
+          <div className="p-3.5 rounded-2xl bg-terracotta/10 border border-terracotta/20 text-xs font-medium text-primary-text flex items-center gap-2.5">
+            <Sparkles className="w-4 h-4 text-terracotta shrink-0" />
+            <span>
+              {locale === "ar"
+                ? "شراكة برمجية مستمرة تبدأ من الفكرة وحتى الإطلاق وما بعده."
+                : "Continuous engineering partnership from initial brief through post-launch."}
+            </span>
+          </div>
+        </motion.div>
+      </motion.div>
+
+      {/* Part 2: Categorized Technical Skills (Symmetrical Full-Width 3-Column Grid) */}
+      <div className="space-y-6 pt-4">
+        <div className="flex items-center justify-between border-b border-border-subtle pb-4">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary-text">
+            <Terminal className="w-4 h-4 text-terracotta" />
+            <span>{locale === "ar" ? "الترسانة والمهارات البرمجية المعتمدة" : "Battle-Tested Tech Stack"}</span>
+          </div>
+          <span className="text-xs text-secondary-text font-mono">
+            {skillCategories.reduce((acc, cat) => acc + cat.skills.length, 0)} {locale === "ar" ? "تقنية وأداة" : "Technologies"}
+          </span>
+        </div>
+
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-40px" }}
-          className="lg:col-span-6 space-y-6"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch"
         >
           {skillCategories.map((category) => {
             const IconComponent =
@@ -205,31 +240,31 @@ export function About() {
               <motion.div
                 key={category.id}
                 variants={itemVariants}
-                className="p-6 sm:p-7 rounded-3xl bg-surface border border-border-subtle shadow-xs hover:border-terracotta/30 transition-all space-y-4"
+                className="flex flex-col justify-between p-6 sm:p-7 rounded-3xl bg-surface border border-border-subtle shadow-xs hover:border-terracotta/30 transition-all space-y-6"
               >
                 {/* Category Header */}
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-surface-hover flex items-center justify-center text-terracotta shadow-2xs">
+                <div className="space-y-3">
+                  <div className="w-11 h-11 rounded-2xl bg-surface-hover flex items-center justify-center text-terracotta shadow-2xs border border-border-subtle">
                     <IconComponent className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-base sm:text-lg font-bold text-primary-text">
+                    <h3 className="text-base sm:text-lg font-extrabold text-primary-text">
                       {t(category.title)}
                     </h3>
-                    <p className="text-xs text-secondary-text">
+                    <p className="text-xs text-secondary-text mt-1 leading-relaxed">
                       {t(category.description)}
                     </p>
                   </div>
                 </div>
 
-                {/* Skills Badges Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-2">
+                {/* Skills Chips Grid */}
+                <div className="grid grid-cols-2 gap-2 pt-2 border-t border-border-subtle">
                   {category.skills.map((skill, idx) => (
                     <div
                       key={idx}
                       className="p-2.5 rounded-xl bg-canvas border border-border-subtle hover:border-terracotta/40 transition-colors flex flex-col justify-between gap-1 group"
                     >
-                      <span className="font-bold text-xs sm:text-sm text-primary-text group-hover:text-terracotta transition-colors">
+                      <span className="font-bold text-xs text-primary-text group-hover:text-terracotta transition-colors truncate">
                         {skill.name}
                       </span>
                       <div className="flex items-center justify-between text-[10px] text-secondary-text font-mono">
