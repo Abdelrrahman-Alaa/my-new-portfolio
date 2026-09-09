@@ -15,7 +15,7 @@ export default function Home() {
       <Navbar />
 
       {/* Main Content Area - Expansive Modern Width (max-w-7xl: 1280px) */}
-      <main className="flex-1 pt-24 pb-20 px-4 sm:px-6 lg:px-8 xl:px-12 max-w-7xl mx-auto w-full space-y-24 sm:space-y-32">
+      <main className="flex-1 pt-18 sm:pt-20 pb-20 px-4 sm:px-6 lg:px-8 xl:px-12 max-w-7xl mx-auto w-full space-y-24 sm:space-y-32">
         {/* Section 1: Hero */}
         <Hero />
 

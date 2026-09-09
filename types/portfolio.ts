@@ -55,7 +55,7 @@ export interface SkillCategory {
 
 export interface TrustMetric {
   id: string;
-  value: string;
+  value: string | LocalizedString;
   label: LocalizedString;
   sublabel: LocalizedString;
 }

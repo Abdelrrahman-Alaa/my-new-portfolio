@@ -98,7 +98,10 @@ export const portfolioData: PortfolioData = {
       },
       {
         id: "delivery",
-        value: "0 تأخير",
+        value: {
+          ar: "0 تأخير",
+          en: "Zero Delays",
+        },
         label: {
           ar: "التزام بالمواعيد المحددة",
           en: "On-Time Milestone Delivery",
