@@ -68,13 +68,20 @@
 
 ---
 
+- [x] **Task 7: Projects Showcase (DONE & COMMITTED - commit 8c2aa3d)**
+  - Built filterable projects showcase in `components/Projects.tsx` with animated category tabs (All, E-Commerce, Corporate, Apps).
+  - Implemented Bespoke Project Modal (Option 1 - User Approved) with backdrop blur, keyboard accessibility (Esc), body-scroll lock, and direct WhatsApp discussion prefill.
+  - Displayed business impact metrics, tech tags, and live preview links.
+  - Verified static production build `pnpm run build` succeeds cleanly with zero errors.
+
+---
+
 ## 3. Immediate Next Task
-- [ ] **Task 7: Projects Showcase (READY TO START PENDING USER CONFIRMATION)**
-  - Build filterable projects showcase in `components/Projects.tsx` (All, E-Commerce, Corporate, Apps).
-  - Create project cards with business impact metrics, tech tags, live demo links, and modal preview details.
-  - Checkpoint with user on presentation details (Modal vs inline expandable).
-  - Verify layout on mobile & desktop, filter responsiveness, and RTL direction.
-  - Commit and request user review before proceeding to Task 8.
+- [ ] **Task 8: Business Services Section (READY TO START PENDING USER CONFIRMATION)**
+  - Create `components/Services.tsx` with 3 core outcome-focused business services.
+  - Add appropriate Lucide icons, key value features, and subtle hover micro-interactions.
+  - Test bilingual support (Arabic RTL / English LTR) and dark mode styling.
+  - Commit and request user review before proceeding to Task 9.
 
 ---
 

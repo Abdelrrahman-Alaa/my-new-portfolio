@@ -154,11 +154,11 @@ git add components/Hero.tsx && git commit -m "feat: implement hero section with 
 - Create: `components/Projects.tsx`
 - Checkpoint: **استعراض أسلوب عرض التفاصيل (Modal vs Direct details) مع المستخدم لاختيار الأنسب له**
 
-- [ ] **Step 1: بناء شريط فلاتر الأنشطة (الكل، متاجر إلكترونية، شركات وخدمات، منصات وتطبيقات)**
-- [ ] **Step 2: بناء كروت المشاريع الاحترافية بمؤشرات الأداء، الأرقام المحققة، والتقنيات**
-- [ ] **Step 3: ربط أزرار المعاينة الحية والكود المصدري**
-- [ ] **Step 4: التحقق من سلاسة الفلترة وتناسق الصور والـ Responsive Grid**
-- [ ] **Step 5: Commit لمعرض المشاريع**
+- [x] **Step 1: بناء شريط فلاتر الأنشطة (الكل، متاجر إلكترونية، شركات وخدمات، منصات وتطبيقات)**
+- [x] **Step 2: بناء كروت المشاريع الاحترافية بمؤشرات الأداء، الأرقام المحققة، والتقنيات**
+- [x] **Step 3: ربط أزرار المعاينة الحية والكود المصدري وفتح المودال**
+- [x] **Step 4: التحقق من سلاسة الفلترة وتناسق الصور والـ Responsive Grid**
+- [x] **Step 5: Commit لمعرض المشاريع**
 ```bash
 git add components/Projects.tsx && git commit -m "feat: build responsive filterable projects showcase with metrics"
 ```
