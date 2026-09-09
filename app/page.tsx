@@ -6,6 +6,7 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Projects } from "@/components/Projects";
 import { Services } from "@/components/Services";
+import { About } from "@/components/About";
 
 export default function Home() {
   const { locale, dir } = useLanguage();
@@ -27,7 +28,10 @@ export default function Home() {
         {/* Dedicated Outcome-Focused Business Services Component */}
         <Services />
 
-        {/* Footer info & status */}
+        {/* Dedicated About Me & Categorized Technical Skills Component */}
+        <About />
+
+        {/* Temporary Footer info & status (Will be replaced in Task 10) */}
         <footer
           id="contact"
           className="p-4 rounded-xl bg-surface border border-border-subtle text-xs text-secondary-text flex flex-wrap items-center justify-between gap-2"
@@ -43,7 +47,7 @@ export default function Home() {
             <strong className="text-primary-text capitalize">{theme}</strong>
           </div>
           <div className="font-mono text-terracotta">
-            Services Section Active
+            About & Skills Section Active
           </div>
         </footer>
       </main>
