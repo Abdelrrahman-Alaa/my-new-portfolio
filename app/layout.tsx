@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cairo, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import { Providers } from "@/components/Providers";
 
 const cairo = Cairo({
   subsets: ["arabic", "latin"],
@@ -22,6 +23,28 @@ export const metadata: Metadata = {
     "بورتفوليو احترافي لمطور ويب Full-stack متخصص في بناء واجهات وتطبيقات رقمية سريعة وعالية التحويل لأصحاب الأعمال والشركات.",
 };
 
+const antiFOUCScript = `
+  (function() {
+    try {
+      var theme = localStorage.getItem('portfolio-theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (theme === 'dark' || (!theme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+      var lang = localStorage.getItem('portfolio-locale');
+      if (lang === 'en') {
+        document.documentElement.setAttribute('lang', 'en');
+        document.documentElement.setAttribute('dir', 'ltr');
+      } else {
+        document.documentElement.setAttribute('lang', 'ar');
+        document.documentElement.setAttribute('dir', 'rtl');
+      }
+    } catch (e) {}
+  })();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -34,8 +57,14 @@ export default function RootLayout({
       className={`${cairo.variable} ${plusJakartaSans.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col font-cairo">
-        {children}
+      <head>
+        <script
+          id="anti-fouc"
+          dangerouslySetInnerHTML={{ __html: antiFOUCScript }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col font-cairo bg-canvas text-primary-text selection:bg-terracotta/20 selection:text-terracotta">
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

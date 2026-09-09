@@ -1,175 +1,222 @@
+"use client";
+
+import { useLanguage } from "@/context/LanguageContext";
+import { useTheme } from "@/context/ThemeContext";
+import { portfolioData } from "@/data/portfolio";
+import { Moon, Sun, Languages, ArrowRight, ArrowLeft, CheckCircle2, MessageSquare } from "lucide-react";
+import { getWhatsAppUrl } from "@/lib/utils";
+
 export default function Home() {
+  const { locale, dir, isRTL, toggleLanguage, t } = useLanguage();
+  const { theme, isDark, toggleTheme } = useTheme();
+  const { profile, projects, services } = portfolioData;
+
+  const ArrowIcon = isRTL ? ArrowLeft : ArrowRight;
+
   return (
-    <main className="min-h-screen p-6 md:p-12 max-w-5xl mx-auto space-y-12">
-      {/* Header section */}
-      <div className="border-b border-warm-sand-border pb-6">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-terracotta/10 text-terracotta text-sm font-semibold mb-3">
-          <span className="w-2 h-2 rounded-full bg-terracotta animate-pulse" />
-          نظام التصميم المعتمد • Design System Tokens
+    <main className="min-h-screen p-6 md:p-12 max-w-5xl mx-auto space-y-12 transition-colors duration-200">
+      {/* Interactive Controls Bar */}
+      <header className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-surface border border-border-subtle shadow-xs">
+        <div className="flex items-center gap-3">
+          <div className="w-3 h-3 rounded-full bg-whatsapp animate-pulse" />
+          <span className="font-bold text-primary-text text-sm">
+            {t(profile.availability.label)}
+          </span>
         </div>
-        <h1 className="text-3xl md:text-5xl font-extrabold text-espresso tracking-tight">
-          اختبار الخطوط وتوكنز الألوان المعتمدة
+
+        <div className="flex items-center gap-2">
+          {/* Language Toggle Button */}
+          <button
+            onClick={toggleLanguage}
+            id="language-toggle-btn"
+            className="flex items-center gap-2 px-3.5 py-2 rounded-xl text-sm font-semibold bg-surface-hover hover:bg-border-subtle border border-border-subtle text-primary-text transition-colors cursor-pointer"
+            aria-label="Toggle language"
+          >
+            <Languages className="w-4 h-4 text-terracotta" />
+            <span>{locale === "ar" ? "English (LTR)" : "العربية (RTL)"}</span>
+          </button>
+
+          {/* Theme Toggle Button */}
+          <button
+            onClick={toggleTheme}
+            id="theme-toggle-btn"
+            className="flex items-center gap-2 px-3.5 py-2 rounded-xl text-sm font-semibold bg-surface-hover hover:bg-border-subtle border border-border-subtle text-primary-text transition-colors cursor-pointer"
+            aria-label="Toggle theme"
+          >
+            {isDark ? (
+              <>
+                <Sun className="w-4 h-4 text-amber-400" />
+                <span>الوضع النهاري • Light</span>
+              </>
+            ) : (
+              <>
+                <Moon className="w-4 h-4 text-terracotta" />
+                <span>الوضع الليلي • Dark</span>
+              </>
+            )}
+          </button>
+        </div>
+      </header>
+
+      {/* Hero Interactive Preview */}
+      <section className="p-8 md:p-12 rounded-3xl bg-surface border border-border-subtle shadow-xs space-y-6">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-terracotta/10 text-terracotta text-sm font-semibold">
+          <span className="w-2 h-2 rounded-full bg-terracotta" />
+          {t(profile.heroBadge)}
+        </div>
+
+        <h1 className="text-3xl md:text-5xl font-extrabold text-primary-text tracking-tight leading-tight">
+          {t(profile.heroHeading)}{" "}
+          <span className="text-terracotta underline decoration-terracotta/30 underline-offset-8">
+            {t(profile.heroHighlight)}
+          </span>
         </h1>
-        <p className="text-muted-slate mt-2 text-lg">
-          Cairo (العربية للأوزان 600 و 800) + Plus Jakarta Sans (الإنجليزية) مع لوحة ألوان الكتان الدافئ والفاحم والتراب المحروق.
+
+        <p className="text-secondary-text text-lg md:text-xl leading-relaxed max-w-3xl">
+          {t(profile.heroSubheading)}
         </p>
-      </div>
 
-      {/* Typography Specimens */}
-      <section className="space-y-6">
-        <h2 className="text-xl font-bold text-espresso border-r-4 border-terracotta pr-3">
-          1. اختبار الخطوط (Typography Specimens)
-        </h2>
+        {/* Action Buttons */}
+        <div className="flex flex-wrap items-center gap-4 pt-2">
+          <a
+            href={getWhatsAppUrl(profile.contact.whatsappNumber, t(profile.contact.whatsappMessage))}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-whatsapp hover:bg-whatsapp-hover text-white font-bold text-sm transition-all shadow-sm hover:shadow-md cursor-pointer"
+          >
+            <MessageSquare className="w-4 h-4 fill-white" />
+            <span>{locale === "ar" ? "محادثة فورية عبر واتساب" : "Direct WhatsApp Chat"}</span>
+          </a>
 
-        {/* Cairo Arabic Test */}
-        <div className="p-6 rounded-2xl bg-white border border-warm-sand-border shadow-xs space-y-4">
-          <span className="text-xs font-semibold tracking-wider text-muted-slate uppercase">
-            الخط العربي: Cairo (Google Fonts)
+          <a
+            href="#projects"
+            className="flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-surface-hover hover:bg-border-subtle text-primary-text border border-border-subtle font-semibold text-sm transition-all cursor-pointer"
+          >
+            <span>{locale === "ar" ? "استعراض المشاريع" : "View Projects"}</span>
+            <ArrowIcon className="w-4 h-4 text-terracotta" />
+          </a>
+        </div>
+
+        {/* Trust Metrics Bar */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-border-subtle">
+          {profile.trustMetrics.map((metric) => (
+            <div key={metric.id} className="p-4 rounded-xl bg-canvas border border-border-subtle space-y-1">
+              <div className="text-2xl font-extrabold text-terracotta font-jakarta">
+                {metric.value}
+              </div>
+              <div className="font-bold text-primary-text text-sm">
+                {t(metric.label)}
+              </div>
+              <div className="text-xs text-secondary-text">
+                {t(metric.sublabel)}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Featured Projects Sample (Bilingual Verification) */}
+      <section className="space-y-6" id="projects">
+        <div className="flex items-center justify-between">
+          <h2 className="text-2xl font-bold text-primary-text">
+            {locale === "ar" ? "نماذج من المشاريع المعتمدة" : "Featured Case Studies"}
+          </h2>
+          <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-border-subtle text-secondary-text">
+            {projects.length} {locale === "ar" ? "مشاريع" : "Projects"}
           </span>
-          <div className="space-y-2">
-            <p className="text-4xl font-extrabold text-espresso">
-              خط كايرو (800 ExtraBold): مطور ويب Full-stack يبني حلولاً حقيقية
-            </p>
-            <p className="text-2xl font-semibold text-espresso">
-              خط كايرو (600 SemiBold): واجهات سريعة وأنيقة تحقق أعلى معدلات التحويل
-            </p>
-            <p className="text-base font-normal text-muted-slate leading-relaxed">
-              خط كايرو (400 Regular): نصوص القراءة السلسة والمقالات الطويلة، واضحة ومريحة للعين وخالية من التكلف والتعقيد.
-            </p>
-          </div>
         </div>
 
-        {/* Plus Jakarta Sans English Test */}
-        <div className="p-6 rounded-2xl bg-white border border-warm-sand-border shadow-xs space-y-4 font-jakarta" dir="ltr">
-          <span className="text-xs font-semibold tracking-wider text-muted-slate uppercase">
-            English Font: Plus Jakarta Sans (Google Fonts)
-          </span>
-          <div className="space-y-2">
-            <p className="text-3xl font-extrabold text-espresso">
-              Plus Jakarta Sans (800 ExtraBold): High-Performance Web Applications
-            </p>
-            <p className="text-xl font-semibold text-espresso">
-              Plus Jakarta Sans (600 SemiBold): Clean aesthetics, editorial design & robust engineering
-            </p>
-            <p className="text-base font-normal text-muted-slate leading-relaxed">
-              Plus Jakarta Sans (400 Regular): Crafted with precision, optimized for speed and human-centered user experiences.
-            </p>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {projects.slice(0, 2).map((project) => (
+            <div
+              key={project.id}
+              className="p-6 rounded-2xl bg-surface border border-border-subtle shadow-xs space-y-4 hover:border-terracotta/40 transition-colors"
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold uppercase tracking-wider text-terracotta px-2 py-0.5 rounded bg-terracotta/10">
+                  {project.category}
+                </span>
+                <span className="text-xs text-secondary-text font-mono">
+                  {project.metrics[0].value} {t(project.metrics[0].label)}
+                </span>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-bold text-primary-text">
+                  {t(project.title)}
+                </h3>
+                <p className="text-sm text-secondary-text mt-1">
+                  {t(project.tagline)}
+                </p>
+              </div>
+
+              <p className="text-sm text-secondary-text leading-relaxed">
+                {t(project.description)}
+              </p>
+
+              <div className="flex flex-wrap gap-1.5 pt-2">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-xs px-2.5 py-1 rounded-md bg-canvas border border-border-subtle text-secondary-text font-mono"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Color Tokens Palette */}
+      {/* Services Sample */}
       <section className="space-y-6">
-        <h2 className="text-xl font-bold text-espresso border-r-4 border-terracotta pr-3">
-          2. باليتة وتوكنز الألوان المعتمدة (Color Tokens)
+        <h2 className="text-2xl font-bold text-primary-text">
+          {locale === "ar" ? "خدمات البيزنس المباشرة" : "Business-Focused Services"}
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {/* Warm Sand */}
-          <div className="p-4 rounded-xl border border-warm-sand-border bg-warm-sand space-y-3">
-            <div className="h-20 rounded-lg bg-warm-sand border border-warm-sand-border flex items-center justify-center font-bold text-espresso">
-              #F7F5F0
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {services.map((service) => (
+            <div
+              key={service.id}
+              className="p-6 rounded-2xl bg-surface border border-border-subtle shadow-xs space-y-4"
+            >
+              <div className="inline-block text-xs font-bold px-2.5 py-1 rounded-full bg-terracotta/15 text-terracotta">
+                {t(service.badge)}
+              </div>
+              <h3 className="text-lg font-bold text-primary-text">
+                {t(service.title)}
+              </h3>
+              <p className="text-sm text-secondary-text leading-relaxed">
+                {t(service.description)}
+              </p>
+              <ul className="space-y-2 pt-2 border-t border-border-subtle">
+                {(service.features[locale] || service.features.ar).slice(0, 3).map((feature, idx) => (
+                  <li key={idx} className="flex items-start gap-2 text-xs text-secondary-text">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-whatsapp shrink-0 mt-0.5" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div>
-              <p className="font-bold text-espresso text-sm">Warm Sand (الكتان الدافئ)</p>
-              <p className="text-xs text-muted-slate">خلفية الوضع النهاري الأساسية</p>
-            </div>
-          </div>
-
-          {/* Dark Obsidian */}
-          <div className="p-4 rounded-xl border border-dark-border bg-dark-obsidian text-white space-y-3">
-            <div className="h-20 rounded-lg bg-dark-obsidian border border-dark-border flex items-center justify-center font-bold text-warm-sand">
-              #111318
-            </div>
-            <div>
-              <p className="font-bold text-white text-sm">Dark Obsidian (الفاحم الراقي)</p>
-              <p className="text-xs text-zinc-400">خلفية الوضع الليلي الفخمة</p>
-            </div>
-          </div>
-
-          {/* Terracotta Rust */}
-          <div className="p-4 rounded-xl border border-warm-sand-border bg-white space-y-3">
-            <div className="h-20 rounded-lg bg-terracotta hover:bg-terracotta-hover transition-colors flex items-center justify-center font-bold text-white cursor-pointer">
-              #C26D53
-            </div>
-            <div>
-              <p className="font-bold text-espresso text-sm">Terracotta Rust (الطمي الترابي)</p>
-              <p className="text-xs text-muted-slate">اللون التفاعلي الأساسي (Primary Accent)</p>
-            </div>
-          </div>
-
-          {/* Signal WhatsApp */}
-          <div className="p-4 rounded-xl border border-warm-sand-border bg-white space-y-3">
-            <div className="h-20 rounded-lg bg-whatsapp hover:bg-whatsapp-hover transition-colors flex items-center justify-center font-bold text-white cursor-pointer">
-              #22C55E
-            </div>
-            <div>
-              <p className="font-bold text-espresso text-sm">Signal WhatsApp (أخضر الواتساب)</p>
-              <p className="text-xs text-muted-slate">زر التواصل الفوري المباشر</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Text and Contrast Shades */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className="p-4 rounded-xl bg-white border border-warm-sand-border">
-            <div className="h-10 rounded bg-espresso mb-2 flex items-center px-3 text-white text-xs font-mono">
-              #1A1A1A
-            </div>
-            <p className="text-sm font-bold text-espresso">Espresso (#1A1A1A)</p>
-            <p className="text-xs text-muted-slate">النصوص الرئيسية والعناوين</p>
-          </div>
-
-          <div className="p-4 rounded-xl bg-white border border-warm-sand-border">
-            <div className="h-10 rounded bg-muted-slate mb-2 flex items-center px-3 text-white text-xs font-mono">
-              #4A4A4A
-            </div>
-            <p className="text-sm font-bold text-espresso">Muted Slate (#4A4A4A)</p>
-            <p className="text-xs text-muted-slate">النصوص الفرعية والوصفية</p>
-          </div>
-
-          <div className="p-4 rounded-xl bg-white border border-warm-sand-border">
-            <div className="h-10 rounded bg-terracotta-light border border-terracotta/20 mb-2 flex items-center px-3 text-terracotta text-xs font-mono font-bold">
-              #F8EBE7
-            </div>
-            <p className="text-sm font-bold text-espresso">Terracotta Light Tint</p>
-            <p className="text-xs text-muted-slate">الشارات والخلفيات الخفيفة</p>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* Dark mode card preview */}
-      <section className="space-y-4">
-        <h2 className="text-xl font-bold text-espresso border-r-4 border-terracotta pr-3">
-          3. معاينة ألوان الوضع الليلي الفخم (Dark Mode Preview Card)
-        </h2>
-        <div className="p-8 rounded-3xl bg-dark-obsidian border border-dark-border text-warm-sand space-y-4">
-          <div className="flex items-center justify-between">
-            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-terracotta/20 text-terracotta">
-              Dark Surface • 181B22
-            </span>
-            <span className="text-xs text-zinc-400 font-jakarta">Obsidian Canvas</span>
-          </div>
-          <h3 className="text-2xl font-bold text-white">
-            تجربة التباين العالي بدون وهج مزعج للعين
-          </h3>
-          <p className="text-zinc-400 text-sm leading-relaxed max-w-2xl">
-            تم ضبط درجات الرمادي الفاحم بعناية لتوفير راحة بصرية فائقة مع إبراز عناصر التفاعل بلون الطمي الدافئ وأخضر الواتساب النابض.
-          </p>
-          <div className="flex flex-wrap gap-3 pt-2">
-            <button className="px-5 py-2.5 rounded-full bg-terracotta hover:bg-terracotta-hover text-white font-semibold text-sm transition-all shadow-sm">
-              زر تفاعلي أساسي
-            </button>
-            <button className="px-5 py-2.5 rounded-full bg-whatsapp hover:bg-whatsapp-hover text-white font-semibold text-sm transition-all shadow-sm flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-              محادثة واتساب
-            </button>
-            <button className="px-5 py-2.5 rounded-full bg-dark-surface hover:bg-dark-muted text-zinc-300 border border-dark-border font-medium text-sm transition-all">
-              زر ثانوي متناسق
-            </button>
-          </div>
+      {/* Context State Inspector */}
+      <footer className="p-4 rounded-xl bg-surface border border-border-subtle text-xs text-secondary-text flex flex-wrap items-center justify-between gap-2">
+        <div>
+          <span>Locale: </span>
+          <strong className="text-primary-text uppercase">{locale}</strong> |{" "}
+          <span>Direction: </span>
+          <strong className="text-primary-text uppercase">{dir}</strong> |{" "}
+          <span>Theme: </span>
+          <strong className="text-primary-text capitalize">{theme}</strong>
         </div>
-      </section>
+        <div className="font-mono text-terracotta">
+          ✓ Verified Context Providers Active
+        </div>
+      </footer>
     </main>
   );
 }
