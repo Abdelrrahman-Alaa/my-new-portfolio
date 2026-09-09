@@ -89,7 +89,7 @@ export function Footer() {
             </p>
 
             {/* Performance Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-canvas border border-border-subtle text-[11px] font-mono text-secondary-text">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-canvas border border-border-subtle text-xs font-mono text-secondary-text">
               <Zap className="w-3 h-3 text-whatsapp" />
               <span>Static Export • 100/100 Lighthouse Speed</span>
             </div>
@@ -133,7 +133,7 @@ export function Footer() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-xl bg-canvas border border-border-subtle text-secondary-text hover:text-whatsapp hover:border-whatsapp/40 transition-colors shadow-2xs"
+                className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-canvas border border-border-subtle text-secondary-text hover:text-whatsapp hover:border-whatsapp/40 transition-colors shadow-2xs"
                 title="WhatsApp"
                 aria-label="WhatsApp"
               >
@@ -142,7 +142,7 @@ export function Footer() {
 
               <a
                 href={`mailto:${profile.contact.email}`}
-                className="p-2.5 rounded-xl bg-canvas border border-border-subtle text-secondary-text hover:text-terracotta hover:border-terracotta/40 transition-colors shadow-2xs"
+                className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-canvas border border-border-subtle text-secondary-text hover:text-terracotta hover:border-terracotta/40 transition-colors shadow-2xs"
                 title="Email"
                 aria-label="Email"
               >
@@ -153,7 +153,7 @@ export function Footer() {
                 href={profile.contact.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-xl bg-canvas border border-border-subtle text-secondary-text hover:text-primary-text hover:border-border-hover transition-colors shadow-2xs"
+                className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-canvas border border-border-subtle text-secondary-text hover:text-primary-text hover:border-border-hover transition-colors shadow-2xs"
                 title="GitHub"
                 aria-label="GitHub"
               >
@@ -164,7 +164,7 @@ export function Footer() {
                 href={profile.contact.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-xl bg-canvas border border-border-subtle text-secondary-text hover:text-blue-500 hover:border-blue-500/40 transition-colors shadow-2xs"
+                className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-canvas border border-border-subtle text-secondary-text hover:text-blue-500 hover:border-blue-500/40 transition-colors shadow-2xs"
                 title="LinkedIn"
                 aria-label="LinkedIn"
               >
@@ -175,7 +175,7 @@ export function Footer() {
               <button
                 onClick={scrollToTop}
                 id="back-to-top-btn"
-                className="p-2.5 rounded-xl bg-surface-hover hover:bg-border-subtle text-primary-text border border-border-subtle transition-colors cursor-pointer mr-auto rtl:mr-0 rtl:ml-auto"
+                className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-surface-hover hover:bg-border-subtle text-primary-text border border-border-subtle transition-colors cursor-pointer mr-auto rtl:mr-0 rtl:ml-auto"
                 title={locale === "ar" ? "العودة للأعلى" : "Back to top"}
                 aria-label="Back to top"
               >
@@ -194,7 +194,7 @@ export function Footer() {
               : "All rights reserved. Crafted with precision & care."}
           </p>
 
-          <p className="flex items-center gap-1.5 font-mono text-[11px]">
+          <p className="flex items-center gap-1.5 font-mono text-xs">
             <span>Next.js 16</span> • <span>Tailwind v4</span> • <span>Cairo & Plus Jakarta</span>
           </p>
         </div>

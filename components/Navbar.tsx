@@ -15,6 +15,9 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const toggleButtonRef = React.useRef<HTMLButtonElement>(null);
+  const mobileDrawerRef = React.useRef<HTMLDivElement>(null);
+
   // Optimized scroll listener using passive event listener and threshold check
   useEffect(() => {
     let ticking = false;
@@ -38,19 +41,57 @@ export function Navbar() {
     };
   }, []);
 
-  // Prevent background scroll when mobile menu is open
+  // Prevent background scroll and trap keyboard focus when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
+
+      // Focus first interactive element inside drawer
+      const focusableElements = mobileDrawerRef.current?.querySelectorAll<HTMLElement>(
+        'a, button, [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusableElements && focusableElements.length > 0) {
+        focusableElements[0].focus();
+      }
+
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === "Escape") {
+          setMobileMenuOpen(false);
+          toggleButtonRef.current?.focus();
+        }
+
+        if (e.key === "Tab" && mobileDrawerRef.current) {
+          const focusables = mobileDrawerRef.current.querySelectorAll<HTMLElement>(
+            'a, button, [tabindex]:not([tabindex="-1"])'
+          );
+          if (focusables.length === 0) return;
+          const first = focusables[0];
+          const last = focusables[focusables.length - 1];
+
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      };
+
+      window.addEventListener("keydown", handleKeyDown);
+      return () => {
+        document.body.style.overflow = "";
+        window.removeEventListener("keydown", handleKeyDown);
+      };
     } else {
       document.body.style.overflow = "";
     }
-    return () => {
-      document.body.style.overflow = "";
-    };
   }, [mobileMenuOpen]);
 
-  const closeMobileMenu = () => setMobileMenuOpen(false);
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    toggleButtonRef.current?.focus();
+  };
 
   const whatsappLink = getWhatsAppUrl(
     profile.contact.whatsappNumber,
@@ -82,7 +123,7 @@ export function Navbar() {
                 {t(profile.name)}
                 <span className="text-terracotta">.</span>
               </span>
-              <span className="text-[11px] text-secondary-text hidden sm:inline-block font-medium">
+              <span className="text-xs text-secondary-text hidden sm:inline-block font-medium">
                 {locale === "ar" ? "مهندس برمجيات" : "Software Engineer"}
               </span>
             </div>
@@ -110,7 +151,7 @@ export function Navbar() {
             <button
               onClick={toggleLanguage}
               id="navbar-lang-toggle"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-surface border border-border-subtle text-primary-text hover:bg-surface-hover transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
+              className="h-10 px-3.5 flex items-center gap-1.5 rounded-xl text-xs font-bold bg-surface border border-border-subtle text-primary-text hover:bg-surface-hover transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
               aria-label={locale === "ar" ? "Switch to English" : "التبديل إلى العربية"}
               title={locale === "ar" ? "Switch to English" : "التبديل إلى العربية"}
             >
@@ -122,7 +163,7 @@ export function Navbar() {
             <button
               onClick={toggleTheme}
               id="navbar-theme-toggle"
-              className="p-2 rounded-xl bg-surface border border-border-subtle text-primary-text hover:bg-surface-hover transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
+              className="w-10 h-10 flex items-center justify-center rounded-xl bg-surface border border-border-subtle text-primary-text hover:bg-surface-hover transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
               aria-label={isDark ? "Activate Light Mode" : "Activate Dark Mode"}
               title={isDark ? (locale === "ar" ? "الوضع النهاري" : "Light Mode") : (locale === "ar" ? "الوضع الليلي" : "Dark Mode")}
             >
@@ -138,7 +179,7 @@ export function Navbar() {
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-white text-xs font-bold transition-all shadow-xs hover:shadow-sm"
+              className="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-white text-xs font-bold transition-all shadow-xs hover:shadow-sm"
             >
               <MessageSquare className="w-3.5 h-3.5 fill-white" />
               <span>{locale === "ar" ? "واتساب مباشر" : "WhatsApp"}</span>
@@ -146,9 +187,10 @@ export function Navbar() {
 
             {/* Mobile Menu Toggle Button */}
             <button
+              ref={toggleButtonRef}
               onClick={() => setMobileMenuOpen((prev) => !prev)}
               id="navbar-mobile-toggle"
-              className="md:hidden p-2 rounded-xl bg-surface border border-border-subtle text-primary-text hover:bg-surface-hover transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
+              className="md:hidden w-11 h-11 flex items-center justify-center rounded-xl bg-surface border border-border-subtle text-primary-text hover:bg-surface-hover transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
               aria-expanded={mobileMenuOpen}
               aria-label="Toggle navigation menu"
             >
@@ -169,8 +211,12 @@ export function Navbar() {
           onClick={closeMobileMenu}
         >
           <div
+            ref={mobileDrawerRef}
             className="absolute top-18 inset-x-4 p-6 rounded-3xl bg-surface border border-border-subtle shadow-xl space-y-6 animate-in slide-in-from-top-4 duration-200"
             onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-label={locale === "ar" ? "قائمة التنقل للهواتف" : "Mobile navigation drawer"}
           >
             {/* Mobile Status Bar */}
             <div className="flex items-center justify-between pb-4 border-b border-border-subtle">
@@ -178,7 +224,7 @@ export function Navbar() {
                 <span className="w-2 h-2 rounded-full bg-whatsapp animate-pulse" />
                 <span>{t(profile.availability.label)}</span>
               </div>
-              <span className="text-[11px] text-secondary-text font-mono">
+              <span className="text-xs text-secondary-text font-mono">
                 {locale.toUpperCase()} • {theme.toUpperCase()}
               </span>
             </div>
@@ -190,7 +236,7 @@ export function Navbar() {
                   key={item.id}
                   href={item.href}
                   onClick={closeMobileMenu}
-                  className="flex items-center justify-between p-3 rounded-xl text-base font-bold text-primary-text hover:bg-surface-hover hover:text-terracotta transition-colors"
+                  className="flex items-center justify-between p-3.5 rounded-xl text-base font-bold text-primary-text hover:bg-surface-hover hover:text-terracotta transition-colors"
                 >
                   <span>{t(item.label)}</span>
                   <ArrowUpRight className="w-4 h-4 text-secondary-text" />

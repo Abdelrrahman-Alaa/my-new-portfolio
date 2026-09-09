@@ -59,7 +59,7 @@ export function Services() {
     >
       {/* Section Header */}
       <div className="space-y-3 max-w-2xl border-b border-border-subtle pb-6">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-terracotta/10 text-terracotta text-xs font-bold">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-terracotta/10 text-terracotta-dark dark:text-terracotta text-xs font-bold">
           <Briefcase className="w-3.5 h-3.5" />
           <span>{locale === "ar" ? "خدمات مخصصة لنمو البيزنس" : "Tailored Business Services"}</span>
         </div>
@@ -104,7 +104,7 @@ export function Services() {
             >
               {/* Highlight Badge for Featured Service */}
               {isFeatured && (
-                <div className="absolute -top-3.5 right-6 rtl:right-auto rtl:left-6 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-terracotta text-white text-[11px] font-bold shadow-xs">
+                <div className="absolute -top-3.5 right-6 rtl:right-auto rtl:left-6 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-terracotta text-white text-xs font-bold shadow-xs">
                   <Sparkles className="w-3 h-3" />
                   <span>{t(service.badge)}</span>
                 </div>
@@ -163,7 +163,7 @@ export function Services() {
                   href={inquiryUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group flex items-center justify-center gap-2 w-full py-3.5 px-4 rounded-2xl font-bold text-xs sm:text-sm transition-all shadow-2xs ${
+                  className={`group flex items-center justify-center gap-2 w-full py-3.5 px-4 rounded-2xl font-bold text-xs sm:text-sm transition-all shadow-2xs focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 focus-visible:ring-offset-canvas ${
                     isFeatured
                       ? "bg-terracotta hover:bg-terracotta-hover text-white shadow-xs hover:shadow-sm"
                       : "bg-surface-hover hover:bg-border-subtle text-primary-text border border-border-subtle"

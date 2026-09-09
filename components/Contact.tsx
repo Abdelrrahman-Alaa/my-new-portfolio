@@ -92,7 +92,7 @@ export function Contact() {
 
       {/* Section Header */}
       <div className="space-y-3 max-w-2xl border-b border-border-subtle pb-6">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-terracotta/10 text-terracotta text-xs font-bold">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-terracotta/10 text-terracotta-dark dark:text-terracotta text-xs font-bold">
           <Send className="w-3.5 h-3.5" />
           <span>{locale === "ar" ? "تواصل مباشر وبدء العمل" : "Direct Contact & Project Inquiries"}</span>
         </div>
@@ -177,7 +177,7 @@ export function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               id="contact-whatsapp-btn"
-              className="group flex items-center justify-center gap-3 w-full py-4 px-6 rounded-2xl bg-whatsapp hover:bg-whatsapp-hover text-white font-bold text-sm sm:text-base transition-all shadow-sm hover:shadow-md hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
+              className="group flex items-center justify-center gap-3 w-full py-4 px-6 rounded-2xl bg-whatsapp hover:bg-whatsapp-hover text-white font-bold text-sm sm:text-base transition-all shadow-sm hover:shadow-md hover:scale-[1.01] active:scale-[0.99] cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-whatsapp focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
             >
               <MessageSquare className="w-5 h-5 fill-white group-hover:rotate-6 transition-transform" />
               <span>
@@ -194,7 +194,7 @@ export function Contact() {
           className="lg:col-span-5 flex flex-col justify-between p-6 sm:p-8 rounded-3xl bg-surface border border-border-subtle shadow-xs space-y-6"
         >
           <div className="space-y-5">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-terracotta">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-terracotta-dark dark:text-terracotta">
               <Mail className="w-4 h-4" />
               <span>{locale === "ar" ? "المراسلة الرسمية" : "Official Correspondence"}</span>
             </div>
@@ -220,7 +220,7 @@ export function Contact() {
                 <button
                   onClick={copyEmail}
                   id="copy-email-btn"
-                  className="shrink-0 p-2 rounded-xl bg-surface hover:bg-surface-hover text-secondary-text hover:text-terracotta border border-border-subtle transition-colors cursor-pointer"
+                  className="shrink-0 w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-surface hover:bg-surface-hover text-secondary-text hover:text-terracotta border border-border-subtle transition-colors cursor-pointer"
                   title={locale === "ar" ? "نسخ البريد" : "Copy email address"}
                   aria-label="Copy email"
                 >
@@ -234,7 +234,7 @@ export function Contact() {
 
               <button
                 onClick={copyEmail}
-                className="w-full py-2 px-3 rounded-xl bg-surface-hover hover:bg-border-subtle text-primary-text text-xs font-bold transition-colors cursor-pointer border border-border-subtle flex items-center justify-center gap-2"
+                className="w-full py-2.5 px-3 rounded-xl bg-surface-hover hover:bg-border-subtle text-primary-text text-xs font-bold transition-colors cursor-pointer border border-border-subtle flex items-center justify-center gap-2 min-h-[44px]"
               >
                 {copied ? (
                   <>
@@ -257,7 +257,7 @@ export function Contact() {
               <Globe2 className="w-4 h-4 text-terracotta" />
               <span>{t(profile.contact.location)}</span>
             </div>
-            <p className="text-[11px] leading-relaxed">
+            <p className="text-xs leading-relaxed">
               {locale === "ar"
                 ? "خبرة في تنفيذ وإدارة المشاريع الرقمية عن بُعد مع مختلف الدول العربية والخليجية."
                 : "Seasoned remote engineering partner serving clients across the Middle East & globally."}

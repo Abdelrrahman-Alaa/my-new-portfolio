@@ -56,7 +56,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-[calc(100svh-4.25rem)] lg:h-[calc(100svh-4.25rem)] flex flex-col justify-between pt-1 pb-6 sm:pb-8 lg:pb-10 overflow-hidden"
+      className="relative min-h-[calc(100svh-4.25rem)] lg:h-[calc(100svh-4.25rem)] flex flex-col justify-between pt-1 pb-6 sm:pb-8 lg:pb-10 "
       aria-label={locale === "ar" ? "الواجهة الرئيسية" : "Hero Introduction"}
     >
       <motion.div
@@ -89,12 +89,12 @@ export function Hero() {
                     {t(profile.name)}
                   </span>
                   <span className="text-secondary-text/60">•</span>
-                  <span className="text-terracotta font-medium font-mono text-[11px]">
+                  <span className="text-terracotta font-medium font-mono text-xs">
                     {locale === "ar" ? "مطور ويب" : "Web Developer"}
                   </span>
                 </div>
 
-                <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-surface border border-border-subtle text-[11px] sm:text-xs font-semibold text-primary-text shadow-2xs">
+                <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-surface border border-border-subtle text-xs font-semibold text-primary-text shadow-2xs">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-whatsapp opacity-75" />
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-whatsapp" />
@@ -107,7 +107,7 @@ export function Hero() {
 
             {/* Main Headline */}
             <motion.div variants={itemVariants} className="space-y-6">
-              <h1 className="text-2xl sm:text-3xl lg:text-[2.35rem] xl:text-[2.65rem] font-extrabold text-primary-text tracking-tight leading-normal ">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-primary-text tracking-tight leading-normal ">
                 {t(profile.heroHeading)}{" "}
                 <span className="relative inline-block text-terracotta">
                   <span className="relative z-10">
@@ -120,7 +120,7 @@ export function Hero() {
                 </span>
               </h1>
 
-              <p className="text-secondary-text text-xs sm:text-sm lg:text-[14.5px] leading-relaxed font-normal max-w-xl">
+              <p className="text-secondary-text text-xs sm:text-sm lg:text-base leading-relaxed font-normal max-w-xl">
                 {t(profile.heroSubheading)}
               </p>
             </motion.div>
@@ -136,7 +136,7 @@ export function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="hero-whatsapp-cta"
-                className="group flex items-center gap-2.5 px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-white font-bold text-xs sm:text-sm transition-all shadow-sm hover:shadow-md hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
+                className="group flex items-center gap-2.5 px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-white font-bold text-xs sm:text-sm transition-all shadow-sm hover:shadow-md hover:scale-[1.01] active:scale-[0.99] cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-whatsapp focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
               >
                 <MessageSquare className="w-4 h-4 fill-white group-hover:rotate-6 transition-transform" />
                 <span>
@@ -150,7 +150,7 @@ export function Hero() {
               <a
                 href="#projects"
                 id="hero-projects-cta"
-                className="group flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-surface hover:bg-surface-hover text-primary-text border border-border-subtle font-bold text-xs sm:text-sm transition-all hover:border-terracotta/40 cursor-pointer shadow-2xs"
+                className="group flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-surface hover:bg-surface-hover text-primary-text border border-border-subtle font-bold text-xs sm:text-sm transition-all hover:border-terracotta/40 cursor-pointer shadow-2xs focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
               >
                 <span>
                   {locale === "ar"
@@ -232,7 +232,7 @@ export function Hero() {
                   <h2 className="font-bold text-primary-text text-xs sm:text-sm leading-snug">
                     {t(metric.label)}
                   </h2>
-                  <p className="text-[11px] sm:text-xs text-secondary-text mt-0.5">
+                  <p className="text-xs text-secondary-text mt-0.5">
                     {t(metric.sublabel)}
                   </p>
                 </div>

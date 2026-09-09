@@ -88,7 +88,12 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom sleek scrollbar matching our palette */
+/* Cross-browser scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-hover) var(--bg-canvas);
+}
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -100,15 +105,26 @@ html {
 
 ::-webkit-scrollbar-thumb {
   background: var(--border-hover);
-  border-radius: 4px;
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #C26D53;
 }
 
-/* Selection highlight */
+/* Accessible theme-aware text selection */
 ::selection {
-  background-color: rgba(194, 109, 83, 0.25);
-  color: #C26D53;
+  background-color: rgba(194, 109, 83, 0.28);
+  color: var(--text-primary);
+}
+
+.dark ::selection {
+  background-color: rgba(194, 109, 83, 0.45);
+  color: #FFFFFF;
+}
+
+/* Baseline focus indicator for keyboard users */
+:focus-visible {
+  outline: 2px solid #C26D53;
+  outline-offset: 2px;
 }

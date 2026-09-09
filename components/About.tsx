@@ -101,7 +101,7 @@ export function About() {
     >
       {/* Section Header */}
       <div className="space-y-3 max-w-2xl border-b border-border-subtle pb-6">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-terracotta/10 text-terracotta text-xs font-bold">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-terracotta/10 text-terracotta-dark dark:text-terracotta text-xs font-bold">
           <Award className="w-3.5 h-3.5" />
           <span>{locale === "ar" ? "الشراكة والخبرة التقنية" : "Partnership & Technical Mastery"}</span>
         </div>
@@ -129,7 +129,7 @@ export function About() {
           className="lg:col-span-7 flex flex-col justify-between p-6 sm:p-8 rounded-3xl bg-surface border border-border-subtle shadow-xs space-y-6"
         >
           <div className="space-y-4">
-            <div className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-terracotta">
+            <div className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-terracotta-dark dark:text-terracotta">
               <Sparkles className="w-4 h-4" />
               <span>{locale === "ar" ? "فلسفة العمل والمنهجية" : "Engineering Philosophy"}</span>
             </div>
@@ -157,7 +157,7 @@ export function About() {
                   ? "بيئة عمل وتطوير مكرسة للإتقان والسرعة"
                   : "Dedicated setup built for high focus & velocity"}
               </span>
-              <span className="text-[10px] font-mono text-white/80 bg-black/50 px-2 py-0.5 rounded-md border border-white/20">
+              <span className="text-xs font-mono text-white/90 bg-black/50 px-2 py-0.5 rounded-md border border-white/20">
                 Setup & Rig
               </span>
             </div>
@@ -185,7 +185,7 @@ export function About() {
           className="lg:col-span-5 flex flex-col justify-between p-6 sm:p-8 rounded-3xl bg-surface border border-border-subtle shadow-xs space-y-6"
         >
           <div className="space-y-5">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-terracotta">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-terracotta-dark dark:text-terracotta">
               <ShieldCheck className="w-4 h-4" />
               <span>{locale === "ar" ? "أرقام وإحصائيات الثقة" : "Track Record & Trust"}</span>
             </div>
@@ -204,7 +204,7 @@ export function About() {
                       <div className="text-xs sm:text-sm font-bold text-primary-text">
                         {stat.label[locale] || stat.label.ar}
                       </div>
-                      <div className="text-[11px] text-secondary-text">
+                      <div className="text-xs text-secondary-text">
                         {stat.sublabel[locale] || stat.sublabel.ar}
                       </div>
                     </div>
@@ -289,7 +289,7 @@ export function About() {
                       <span className="font-bold text-xs text-primary-text group-hover:text-terracotta transition-colors truncate">
                         {skill.name}
                       </span>
-                      <div className="flex items-center justify-between text-[10px] text-secondary-text font-mono">
+                      <div className="flex items-center justify-between text-xs text-secondary-text font-mono">
                         <span>{skill.tag || "Tool"}</span>
                         <span className="text-terracotta/80 font-sans">{skill.level.split("•")[0]}</span>
                       </div>

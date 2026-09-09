@@ -43,41 +43,76 @@ export function Projects() {
   const [activeCategory, setActiveCategory] = useState<ProjectCategory>("all");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
+  const triggerRef = React.useRef<HTMLElement | null>(null);
+  const modalRef = React.useRef<HTMLDivElement>(null);
+
   // Filter projects based on activeCategory
   const filteredProjects =
     activeCategory === "all"
       ? projects
       : projects.filter((project) => project.category === activeCategory);
 
-  // Lock body scroll when modal is open
+  const openModal = (project: Project, e?: React.MouseEvent) => {
+    if (e) {
+      triggerRef.current = e.currentTarget as HTMLElement;
+    }
+    setSelectedProject(project);
+  };
+
+  const closeModal = () => {
+    setSelectedProject(null);
+    triggerRef.current?.focus();
+  };
+
+  // Manage modal body scroll and focus trapping
   useEffect(() => {
     if (selectedProject) {
       document.body.style.overflow = "hidden";
+
+      requestAnimationFrame(() => {
+        const closeBtn = document.getElementById("close-modal-btn");
+        closeBtn?.focus();
+      });
+
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === "Escape") {
+          closeModal();
+        }
+
+        if (e.key === "Tab" && modalRef.current) {
+          const focusables = modalRef.current.querySelectorAll<HTMLElement>(
+            'a, button, input, textarea, [tabindex]:not([tabindex="-1"])'
+          );
+          if (focusables.length === 0) return;
+          const first = focusables[0];
+          const last = focusables[focusables.length - 1];
+
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      };
+
+      window.addEventListener("keydown", handleKeyDown);
+      return () => {
+        document.body.style.overflow = "";
+        window.removeEventListener("keydown", handleKeyDown);
+      };
     } else {
       document.body.style.overflow = "";
     }
-    return () => {
-      document.body.style.overflow = "";
-    };
   }, [selectedProject]);
-
-  // Handle ESC key to close modal
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setSelectedProject(null);
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
 
   return (
     <section id="projects" className="space-y-10 scroll-mt-28" aria-label={locale === "ar" ? "معرض المشاريع" : "Projects Showcase"}>
       {/* Section Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-border-subtle pb-6">
         <div className="space-y-2 max-w-xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-terracotta/10 text-terracotta text-xs font-bold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-terracotta/10 text-terracotta-dark dark:text-terracotta text-xs font-bold">
             <Layers className="w-3.5 h-3.5" />
             <span>{locale === "ar" ? "أعمال واقعية ونتائج موثقة" : "Proven Results & Case Studies"}</span>
           </div>
@@ -126,7 +161,7 @@ export function Projects() {
               )}
               <span className="relative z-10">{t(cat.label)}</span>
               <span
-                className={`relative z-10 px-1.5 py-0.2 rounded-md text-[10px] font-mono ${
+                className={`relative z-10 px-1.5 py-0.5 rounded-md text-xs font-mono ${
                   isActive
                     ? "bg-white/20 text-white"
                     : "bg-canvas text-secondary-text border border-border-subtle"
@@ -157,7 +192,7 @@ export function Projects() {
               >
                 {/* Project Header Image & Preview Frame */}
                 <div
-                  onClick={() => setSelectedProject(project)}
+                  onClick={(e) => openModal(project, e)}
                   className="relative aspect-16/10 w-full overflow-hidden bg-canvas border-b border-border-subtle cursor-pointer group/img"
                 >
                   <img
@@ -178,7 +213,7 @@ export function Projects() {
                     <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 shadow-xs text-xs font-extrabold text-white font-jakarta">
                       <TrendingUp className="w-3.5 h-3.5 text-whatsapp" />
                       <span>{primaryMetric.value}</span>
-                      <span className="text-[11px] text-white/80 font-normal">
+                      <span className="text-xs text-white/80 font-normal">
                         {t(primaryMetric.label)}
                       </span>
                     </div>
@@ -225,7 +260,7 @@ export function Projects() {
                   <div className="flex items-center justify-between gap-3 pt-4 border-t border-border-subtle">
                     {/* View Details / Case Study Button */}
                     <button
-                      onClick={() => setSelectedProject(project)}
+                      onClick={(e) => openModal(project, e)}
                       className="project-details-btn flex items-center gap-2 px-4 py-2.5 rounded-xl bg-surface-hover hover:bg-border-subtle text-primary-text font-bold text-xs transition-colors cursor-pointer border border-border-subtle"
                     >
                       <Eye className="w-3.5 h-3.5 text-terracotta" />
@@ -270,9 +305,10 @@ export function Projects() {
           <div
             id="project-modal-backdrop"
             className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-sm overflow-y-auto"
-            onClick={() => setSelectedProject(null)}
+            onClick={closeModal}
           >
             <motion.div
+              ref={modalRef}
               initial={{ opacity: 0, scale: 0.95, y: 16 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 16 }}
@@ -286,7 +322,7 @@ export function Projects() {
               {/* Modal Top Bar with Category, Title and Separated Close Button */}
               <div className="flex items-start justify-between gap-4 pb-2 border-b border-border-subtle">
                 <div className="space-y-2 flex-1">
-                  <span className="inline-block text-xs font-bold uppercase tracking-wider text-terracotta px-2.5 py-1 rounded-md bg-terracotta/10 border border-terracotta/20">
+                  <span className="inline-block text-xs font-bold uppercase tracking-wider text-terracotta-dark dark:text-terracotta px-2.5 py-1 rounded-md bg-terracotta/10 border border-terracotta/20">
                     {selectedProject.category}
                   </span>
                   <h3
@@ -303,8 +339,8 @@ export function Projects() {
                 {/* Close Button - Cleanly separated in flex layout */}
                 <button
                   id="close-modal-btn"
-                  onClick={() => setSelectedProject(null)}
-                  className="shrink-0 p-2.5 rounded-xl bg-surface-hover hover:bg-border-subtle text-secondary-text hover:text-primary-text transition-colors cursor-pointer border border-border-subtle"
+                  onClick={closeModal}
+                  className="shrink-0 p-2.5 rounded-xl bg-surface-hover hover:bg-border-subtle text-secondary-text hover:text-primary-text transition-colors cursor-pointer border border-border-subtle focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2"
                   aria-label="Close dialog"
                 >
                   <X className="w-5 h-5" />
@@ -367,7 +403,7 @@ export function Projects() {
                   href={selectedProject.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-6 py-3 rounded-xl bg-terracotta hover:bg-terracotta-hover text-white font-bold text-sm transition-colors shadow-sm cursor-pointer"
+                  className="flex items-center gap-2 px-6 py-3 rounded-xl bg-terracotta hover:bg-terracotta-hover text-white font-bold text-sm transition-colors shadow-sm cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2"
                 >
                   <Globe className="w-4 h-4" />
                   <span>{locale === "ar" ? "فتح المعاينة الحية" : "Open Live Preview"}</span>
@@ -381,7 +417,7 @@ export function Projects() {
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-5 py-3 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-white font-bold text-sm transition-colors shadow-sm cursor-pointer"
+                  className="flex items-center gap-2 px-5 py-3 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-white font-bold text-sm transition-colors shadow-sm cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-whatsapp focus-visible:ring-offset-2"
                 >
                   <MessageSquare className="w-4 h-4 fill-white" />
                   <span>{locale === "ar" ? "ناقش مشروعاً مشابهاً" : "Discuss Similar Project"}</span>
