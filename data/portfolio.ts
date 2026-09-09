@@ -50,15 +50,15 @@ export const portfolioData: PortfolioData = {
       clientSatisfaction: "100%",
     },
     contact: {
-      whatsappNumber: "+201000000000", // International format without spaces
-      whatsappFormatted: "+20 100 000 0000",
+      whatsappNumber: "+201033485442", // International format without spaces
+      whatsappFormatted: "+20 103 348 5442",
       whatsappMessage: {
         ar: "مرحباً عبدالرحمن، اطلعت على أعمالك في البورتفوليو وأرغب في مناقشة مشروع جديد معك.",
         en: "Hello Abdelrahman, I checked your portfolio and would like to discuss an upcoming project with you.",
       },
-      email: "abdelrahman.dev@outlook.com",
-      githubUrl: "https://github.com",
-      linkedinUrl: "https://linkedin.com",
+      email: "abdelrrahman.alaa.work@gmail.com",
+      githubUrl: "https://github.com/Abdelrrahman-Alaa",
+      linkedinUrl: "https://www.linkedin.com/in/abdelrrahman-alaa/",
       location: {
         ar: "الشرق الأوسط (متاح للعمل عن بُعد حول العالم)",
         en: "Middle East (Available for remote work worldwide)",
