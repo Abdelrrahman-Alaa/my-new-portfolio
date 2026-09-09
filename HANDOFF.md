@@ -20,22 +20,24 @@
   - Configured `next.config.ts` for Static Export (`output: 'export'`, `images: { unoptimized: true }`).
   - Installed dependencies via `pnpm`: `lucide-react`, `framer-motion`, `clsx`, `tailwind-merge`.
   - Verified static production build `pnpm run build` succeeds and produces `/out`.
+- [x] **Task 2: Design System, Typography & Theme Tokens (DONE & COMMITTED - commit d07396f)**
+  - Configured Google Fonts in `app/layout.tsx`: `Cairo` (400, 500, 600, 700, 800) and `Plus_Jakarta_Sans` (400, 500, 600, 700, 800).
+  - Configured color tokens in `app/globals.css` (Tailwind v4 `@theme`):
+    - Light canvas: `#F7F5F0` (Warm Sand).
+    - Dark canvas: `#111318` (Obsidian Charcoal).
+    - Primary Accent: `#C26D53` (Terracotta Rust) & hover `#AB5A42`.
+    - Signal WhatsApp Accent: `#22C55E` & hover `#16A34A`.
+    - Text: `#1A1A1A` (Espresso) / `#4A4A4A` (Muted Slate).
+  - Verified via `pnpm run build` and browser testing on `http://localhost:3000`.
 
 ---
 
 ## 3. Immediate Next Task
-- [ ] **Task 2: Design System, Typography & Theme Tokens (READY TO START)**
-  - Configure Google Fonts in `app/layout.tsx`:
-    - Arabic: **`Cairo`** (weights: 600 SemiBold, 800 ExtraBold).
-    - English: **`Plus Jakarta Sans`**.
-  - Configure color tokens in `tailwind.config.js` / `app/globals.css`:
-    - Light canvas: `#F7F5F0` (Warm Linen / Sand).
-    - Dark canvas: `#111318` (Obsidian Charcoal).
-    - Primary Accent: `#C26D53` (Terracotta Rust).
-    - Signal WhatsApp Accent: `#22C55E`.
-    - Text: `#1A1A1A` (Espresso) / `#4A4A4A` (Muted Slate).
-  - Verify typography and color token rendering on `http://localhost:3000`.
-  - Self-review and get user confirmation before starting Task 3.
+- [ ] **Task 3: Data Layer & Types (READY TO START PENDING USER CONFIRMATION)**
+  - Create TypeScript interfaces in `types/portfolio.ts` (Projects, Services, Skills, Profile, Testimonials).
+  - Create centralized data layer in `data/portfolio.ts` with comprehensive Arabic and English content.
+  - Type-check with `pnpm run build` / `tsc --noEmit`.
+  - Commit and request user review before proceeding to Task 4.
 
 ---
 

@@ -59,14 +59,14 @@ git add . && git commit -m "chore: scaffold Next.js project with Tailwind, TS, L
 - Modify: `app/globals.css`
 - Modify: `tailwind.config.js`
 
-- [ ] **Step 1: استدعاء خطوط `Cairo` و `Plus Jakarta Sans` باستخدام `next/font/google`**
+- [x] **Step 1: استدعاء خطوط `Cairo` و `Plus Jakarta Sans` باستخدام `next/font/google`**
 تضمين الخطين في `app/layout.tsx` وتعيين متغيرات CSS (`--font-cairo` و `--font-jakarta`).
-- [ ] **Step 2: إعداد توكنز الألوان في `tailwind.config.js`**
+- [x] **Step 2: إعداد توكنز الألوان في `tailwind.config.js` / `app/globals.css`**
 إضافة ألوان الكتان والحجر الرملي الدافئ (`warm-sand: #F7F5F0`)، والرمادي الفاحم (`dark-obsidian: #111318`)، ولمسة الطمي الترابي (`terracotta: #C26D53`)، وزر الواتساب (`whatsapp: #22C55E`).
-- [ ] **Step 3: تهيئة الأنماط العامة في `app/globals.css`**
+- [x] **Step 3: تهيئة الأنماط العامة في `app/globals.css`**
 ضبط دعم الانتقال السلس للوضع الليلي، وتنسيق شريط التمرير، وسلاسة قراءة الخط العربي.
-- [ ] **Step 4: اختبار صحة الخطوط والألوان في المتصفح**
-- [ ] **Step 5: Commit لتجهيز الخطوط والأنماط**
+- [x] **Step 4: اختبار صحة الخطوط والألوان في المتصفح**
+- [x] **Step 5: Commit لتجهيز الخطوط والأنماط**
 ```bash
 git add . && git commit -m "style: configure Cairo and Plus Jakarta Sans fonts and warm humanist theme tokens"
 ```
