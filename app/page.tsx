@@ -5,12 +5,13 @@ import { useTheme } from "@/context/ThemeContext";
 import { portfolioData } from "@/data/portfolio";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
+import { Projects } from "@/components/Projects";
 import { CheckCircle2 } from "lucide-react";
 
 export default function Home() {
-  const { locale, dir, t } = useLanguage();
+  const { locale, dir } = useLanguage();
   const { theme } = useTheme();
-  const { projects, services } = portfolioData;
+  const { services } = portfolioData;
 
   return (
     <div className="min-h-screen flex flex-col bg-canvas text-primary-text transition-colors duration-200">
@@ -18,63 +19,12 @@ export default function Home() {
       <Navbar />
 
       {/* Main Content Area */}
-      <main className="flex-1 pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full space-y-16 sm:space-y-24">
+      <main className="flex-1 pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full space-y-20 sm:space-y-28">
         {/* Dedicated Hero Section Component */}
         <Hero />
 
-        {/* Featured Projects Preview (Will be replaced in Task 7) */}
-        <section className="space-y-6" id="projects">
-          <div className="flex items-center justify-between">
-            <h2 className="text-2xl sm:text-3xl font-bold text-primary-text">
-              {locale === "ar" ? "نماذج من المشاريع المعتمدة" : "Featured Case Studies"}
-            </h2>
-            <span className="text-xs font-semibold px-3 py-1 rounded-full bg-border-subtle text-secondary-text">
-              {projects.length} {locale === "ar" ? "مشاريع" : "Projects"}
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {projects.slice(0, 2).map((project) => (
-              <div
-                key={project.id}
-                className="p-6 rounded-2xl bg-surface border border-border-subtle shadow-xs space-y-4 hover:border-terracotta/40 transition-colors"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase tracking-wider text-terracotta px-2 py-0.5 rounded bg-terracotta/10">
-                    {project.category}
-                  </span>
-                  <span className="text-xs text-secondary-text font-mono">
-                    {project.metrics[0].value} {t(project.metrics[0].label)}
-                  </span>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-bold text-primary-text">
-                    {t(project.title)}
-                  </h3>
-                  <p className="text-sm text-secondary-text mt-1">
-                    {t(project.tagline)}
-                  </p>
-                </div>
-
-                <p className="text-sm text-secondary-text leading-relaxed">
-                  {t(project.description)}
-                </p>
-
-                <div className="flex flex-wrap gap-1.5 pt-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs px-2.5 py-1 rounded-md bg-canvas border border-border-subtle text-secondary-text font-mono"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+        {/* Dedicated Filterable Projects Showcase with Bespoke Modal */}
+        <Projects />
 
         {/* Services Section Preview (Will be replaced in Task 8) */}
         <section className="space-y-6" id="services">
@@ -89,13 +39,13 @@ export default function Home() {
                 className="p-6 rounded-2xl bg-surface border border-border-subtle shadow-xs space-y-4"
               >
                 <div className="inline-block text-xs font-bold px-2.5 py-1 rounded-full bg-terracotta/15 text-terracotta">
-                  {t(service.badge)}
+                  {service.badge[locale] || service.badge.ar}
                 </div>
                 <h3 className="text-lg font-bold text-primary-text">
-                  {t(service.title)}
+                  {service.title[locale] || service.title.ar}
                 </h3>
                 <p className="text-sm text-secondary-text leading-relaxed">
-                  {t(service.description)}
+                  {service.description[locale] || service.description.ar}
                 </p>
                 <ul className="space-y-2 pt-2 border-t border-border-subtle">
                   {(service.features[locale] || service.features.ar).slice(0, 3).map((feature, idx) => (
@@ -121,7 +71,7 @@ export default function Home() {
             <strong className="text-primary-text capitalize">{theme}</strong>
           </div>
           <div className="font-mono text-terracotta">
-            Hero Section Active
+            Projects Showcase Active
           </div>
         </footer>
       </main>
