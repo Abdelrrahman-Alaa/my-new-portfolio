@@ -32,12 +32,21 @@
 
 ---
 
+- [x] **Task 3: Data Layer & Types (DONE & COMMITTED - commit f6bc891)**
+  - Created strict TypeScript interfaces in `types/portfolio.ts` (Project, Service, SkillCategory, DeveloperProfile, TrustMetric, NavigationItem).
+  - Created centralized bilingual data layer in `data/portfolio.ts` with authentic, high-converting Arabic & English content and case study metrics.
+  - Added utility helpers in `lib/utils.ts` (`cn`, `getLocalized`, `getWhatsAppUrl`).
+  - Verified static production build and type safety with `pnpm run build` (zero errors).
+
+---
+
 ## 3. Immediate Next Task
-- [ ] **Task 3: Data Layer & Types (READY TO START PENDING USER CONFIRMATION)**
-  - Create TypeScript interfaces in `types/portfolio.ts` (Projects, Services, Skills, Profile, Testimonials).
-  - Create centralized data layer in `data/portfolio.ts` with comprehensive Arabic and English content.
-  - Type-check with `pnpm run build` / `tsc --noEmit`.
-  - Commit and request user review before proceeding to Task 4.
+- [ ] **Task 4: i18n & Theme Providers (READY TO START PENDING USER CONFIRMATION)**
+  - Create `context/LanguageContext.tsx` with instant language & RTL/LTR toggle.
+  - Create `context/ThemeContext.tsx` with Light/Dark mode toggle and localStorage sync.
+  - Create `components/Providers.tsx` and integrate in `app/layout.tsx`.
+  - Verify smooth transition without hydration flash (FOUC).
+  - Commit and request user review before proceeding to Task 5.
 
 ---
 

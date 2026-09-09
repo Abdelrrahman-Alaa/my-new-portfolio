@@ -79,13 +79,13 @@ git add . && git commit -m "style: configure Cairo and Plus Jakarta Sans fonts a
 - Create: `types/portfolio.ts`
 - Create: `data/portfolio.ts`
 
-- [ ] **Step 1: كتابة واجهات TypeScript الصارمة في `types/portfolio.ts`**
+- [x] **Step 1: كتابة واجهات TypeScript الصارمة في `types/portfolio.ts`**
 تعريف أنواع: `Project`, `Service`, `Skill`, `DeveloperProfile`, `Testimonial`, `NavigationItem`.
-- [ ] **Step 2: كتابة ملف البيانات المركزي `data/portfolio.ts`**
+- [x] **Step 2: كتابة ملف البيانات المركزي `data/portfolio.ts`**
 تضمين بيانات عربية وإنجليزية للمشاريع الحقيقية، الخدمات الموجهة لأصحاب البيزنس، المهارات المصنفة، وبيانات الاتصال.
-- [ ] **Step 3: التحقق البرمجي من صحة البيانات (Typecheck)**
-تشغيل `npx tsc --noEmit` للتأكد من عدم وجود أي نقص أو خطأ في الأنواع.
-- [ ] **Step 4: Commit لطبقة البيانات**
+- [x] **Step 3: التحقق البرمجي من صحة البيانات (Typecheck)**
+تشغيل `npx tsc --noEmit` أو `pnpm run build` للتأكد من عدم وجود أي نقص أو خطأ في الأنواع.
+- [x] **Step 4: Commit لطبقة البيانات**
 ```bash
 git add types/ data/ && git commit -m "feat: add typed centralized portfolio data layer"
 ```
