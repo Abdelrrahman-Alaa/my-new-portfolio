@@ -100,13 +100,13 @@ git add types/ data/ && git commit -m "feat: add typed centralized portfolio dat
 - Create: `components/Providers.tsx`
 - Modify: `app/layout.tsx`
 
-- [ ] **Step 1: إنشاء `LanguageContext` لإدارة اللغتين (عربي / إنجليزي)**
+- [x] **Step 1: إنشاء `LanguageContext` لإدارة اللغتين (عربي / إنجليزي)**
 توفير حالة `locale` و `dir` ودالة `toggleLanguage()` وتحديث خاصية `dir="rtl"` أو `dir="ltr"` في جذر الصفحة فورياً بدون reload.
-- [ ] **Step 2: إنشاء `ThemeContext` لإدارة الوضع الليلي والنهاري**
+- [x] **Step 2: إنشاء `ThemeContext` لإدارة الوضع الليلي والنهاري**
 توفير حالة `theme` ('light' | 'dark') وإضافة كلاس `dark` للـ `document.documentElement` مع حفظ التفضيل في `localStorage`.
-- [ ] **Step 3: دمج الـ Providers في `app/layout.tsx`**
-- [ ] **Step 4: التحقق من التبديل السلس بدون وميض (FOUC)**
-- [ ] **Step 5: Commit للـ Providers**
+- [x] **Step 3: دمج الـ Providers في `app/layout.tsx`**
+- [x] **Step 4: التحقق من التبديل السلس بدون وميض (FOUC)**
+- [x] **Step 5: Commit للـ Providers**
 ```bash
 git add context/ components/Providers.tsx app/layout.tsx && git commit -m "feat: implement instant i18n and theme context providers"
 ```

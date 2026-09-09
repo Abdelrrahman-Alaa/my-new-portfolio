@@ -40,13 +40,22 @@
 
 ---
 
+- [x] **Task 4: i18n & Theme Providers (DONE & COMMITTED - commit 13685a9)**
+  - Created `context/LanguageContext.tsx` with instant language & RTL/LTR toggle, persistent in localStorage.
+  - Created `context/ThemeContext.tsx` with Light/Dark mode toggle, persistent in localStorage.
+  - Implemented anti-FOUC inline script in `app/layout.tsx` to completely prevent hydration flash.
+  - Verified instant switching on `http://localhost:3000` across 4 states (Ar Light, En Light, En Dark, Ar Dark).
+  - Production static build `pnpm run build` succeeds cleanly with zero errors.
+
+---
+
 ## 3. Immediate Next Task
-- [ ] **Task 4: i18n & Theme Providers (READY TO START PENDING USER CONFIRMATION)**
-  - Create `context/LanguageContext.tsx` with instant language & RTL/LTR toggle.
-  - Create `context/ThemeContext.tsx` with Light/Dark mode toggle and localStorage sync.
-  - Create `components/Providers.tsx` and integrate in `app/layout.tsx`.
-  - Verify smooth transition without hydration flash (FOUC).
-  - Commit and request user review before proceeding to Task 5.
+- [ ] **Task 5: Navbar & Header (READY TO START PENDING USER CONFIRMATION)**
+  - Build responsive bilingual `components/Navbar.tsx` (Desktop + Mobile Drawer).
+  - Integrate personal branding, navigation anchor links, language switch button, and theme switch button.
+  - Add frosted glass backdrop-blur effect on page scroll.
+  - Verify on mobile & desktop viewports with RTL mirroring.
+  - Commit and request user review before proceeding to Task 6.
 
 ---
 
