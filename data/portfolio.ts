@@ -10,8 +10,8 @@ export const portfolioData: PortfolioData = {
       ar: "مهندس برمجيات ومطور واجهات وتطبيقات ويب سريعة",
       en: "Full-Stack Software Engineer & High-Performance Web Developer",
     },
-    avatar: "/images/avatar.jpg",
-    workspaceImage: "/images/workspace.jpg",
+    avatar: "/images/avatar.webp",
+    workspaceImage: "/images/workspace.webp",
     heroBadge: {
       ar: "متاح للعمل على مشاريع جديدة وفورية",
       en: "Available for new projects & partnerships",
@@ -196,7 +196,7 @@ export const portfolioData: PortfolioData = {
         en: "Designed and developed a luxury fragrance shop delivering a frictionless shopping experience. Features an intelligent cart that compiles order details and addresses into an instant WhatsApp message.",
       },
       category: "ecommerce",
-      image: "/images/project-rawasi.jpg",
+      image: "/images/project-rawasi.webp",
       tags: [
         "Next.js",
         "TypeScript",
@@ -246,7 +246,7 @@ export const portfolioData: PortfolioData = {
         en: "Engineered a corporate portal for an architecture & engineering firm, featuring a filterable interactive portfolio of completed megaprojects and a pre-qualification consultation scheduler.",
       },
       category: "corporate",
-      image: "/images/project-binaa.jpg",
+      image: "/images/project-binaa.webp",
       tags: ["Next.js", "Tailwind CSS", "TypeScript", "SEO Optimization"],
       metrics: [
         {
@@ -290,7 +290,7 @@ export const portfolioData: PortfolioData = {
         en: "Full-fledged clinic management application enabling patients to book visits in seconds with automated WhatsApp confirmations, while providing practitioners with conflict-free schedules.",
       },
       category: "apps",
-      image: "/images/project-shifa.jpg",
+      image: "/images/project-shifa.webp",
       tags: ["React", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS"],
       metrics: [
         {
@@ -334,7 +334,7 @@ export const portfolioData: PortfolioData = {
         en: "B2B wholesale portal enabling retailers to explore volume-tiered pricing, assemble bulk orders seamlessly, and auto-generate branded quotation PDFs with real-time stock sync.",
       },
       category: "ecommerce",
-      image: "/images/project-jazl.jpg",
+      image: "/images/project-jazl.webp",
       tags: [
         "Next.js",
         "TypeScript",

@@ -76,7 +76,7 @@ export function Hero() {
             >
               <div className="relative shrink-0">
                 <img
-                  src={profile.avatar || "/images/avatar.jpg"}
+                  src={profile.avatar || "/images/avatar.webp"}
                   alt={t(profile.name)}
                   className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover ring-2 ring-terracotta/30 shadow-xs"
                 />
@@ -189,7 +189,7 @@ export function Hero() {
               className="relative w-full max-w-sm lg:max-w-md xl:max-w-lg flex items-center justify-center"
             >
               <img
-                src="/images/hero.png"
+                src="/images/hero.webp"
                 alt={
                   locale === "ar"
                     ? "رسم توضيحي لمطور برمجيات متكامل"

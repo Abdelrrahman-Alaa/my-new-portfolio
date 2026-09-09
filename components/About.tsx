@@ -144,7 +144,7 @@ export function About() {
           {/* Workspace & Engineering Rig Visual */}
           <div className="relative aspect-21/9 sm:aspect-24/9 w-full rounded-2xl overflow-hidden bg-canvas border border-border-subtle group">
             <img
-              src="/images/workspace.jpg"
+              src="/images/workspace.webp"
               alt="Engineering Workspace Setup"
               className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-103"
               loading="lazy"
