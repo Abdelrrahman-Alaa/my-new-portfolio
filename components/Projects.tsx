@@ -258,36 +258,38 @@ export function Projects() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 16 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="relative w-full max-w-2xl rounded-3xl bg-surface border border-border-subtle shadow-2xl p-6 sm:p-8 space-y-6 my-auto"
+              className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl bg-surface border border-border-subtle shadow-2xl p-6 sm:p-8 space-y-6 my-auto"
               onClick={(e) => e.stopPropagation()}
               role="dialog"
               aria-modal="true"
               aria-labelledby="modal-project-title"
             >
-              {/* Close Button */}
-              <button
-                id="close-modal-btn"
-                onClick={() => setSelectedProject(null)}
-                className="absolute top-5 left-5 rtl:left-auto rtl:right-5 p-2 rounded-xl bg-surface-hover hover:bg-border-subtle text-secondary-text hover:text-primary-text transition-colors cursor-pointer border border-border-subtle"
-                aria-label="Close dialog"
-              >
-                <X className="w-5 h-5" />
-              </button>
+              {/* Modal Top Bar with Category, Title and Separated Close Button */}
+              <div className="flex items-start justify-between gap-4 pb-2 border-b border-border-subtle">
+                <div className="space-y-2 flex-1">
+                  <span className="inline-block text-xs font-bold uppercase tracking-wider text-terracotta px-2.5 py-1 rounded-md bg-terracotta/10 border border-terracotta/20">
+                    {selectedProject.category}
+                  </span>
+                  <h3
+                    id="modal-project-title"
+                    className="text-2xl sm:text-3xl font-extrabold text-primary-text leading-tight"
+                  >
+                    {t(selectedProject.title)}
+                  </h3>
+                  <p className="text-sm sm:text-base text-secondary-text font-medium">
+                    {t(selectedProject.tagline)}
+                  </p>
+                </div>
 
-              {/* Modal Header */}
-              <div className="space-y-2 pr-8 rtl:pr-0 rtl:pl-8">
-                <span className="text-xs font-bold uppercase tracking-wider text-terracotta px-2.5 py-1 rounded-md bg-terracotta/10 border border-terracotta/20">
-                  {selectedProject.category}
-                </span>
-                <h3
-                  id="modal-project-title"
-                  className="text-2xl sm:text-3xl font-extrabold text-primary-text"
+                {/* Close Button - Cleanly separated in flex layout */}
+                <button
+                  id="close-modal-btn"
+                  onClick={() => setSelectedProject(null)}
+                  className="shrink-0 p-2.5 rounded-xl bg-surface-hover hover:bg-border-subtle text-secondary-text hover:text-primary-text transition-colors cursor-pointer border border-border-subtle"
+                  aria-label="Close dialog"
                 >
-                  {t(selectedProject.title)}
-                </h3>
-                <p className="text-base text-secondary-text font-medium">
-                  {t(selectedProject.tagline)}
-                </p>
+                  <X className="w-5 h-5" />
+                </button>
               </div>
 
               {/* Business Impact Metrics Grid */}
