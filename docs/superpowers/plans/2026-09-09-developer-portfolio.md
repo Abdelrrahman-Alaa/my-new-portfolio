@@ -135,13 +135,13 @@ git add components/Navbar.tsx && git commit -m "feat: build responsive bilingual
 **Files:**
 - Create: `components/Hero.tsx`
 
-- [ ] **Step 1: بناء المحتوى الترحيبي الإنساني الخالي من التعقيد**
+- [x] **Step 1: بناء المحتوى الترحيبي الإنساني الخالي من التعقيد**
 العنوان البسيط القوي + النبذة الموجهة لأصحاب الأنشطة والشركات.
-- [ ] **Step 2: إضافة زري الدعوة للإجراء (Primary Dual CTAs)**
+- [x] **Step 2: إضافة زري الدعوة للإجراء (Primary Dual CTAs)**
 زر "استعرض أعمالي" (ينزل بسلاسة للمشاريع) + زر "محادثة سريعة عبر واتساب" مع لمسة تفاعلية ناعمة.
-- [ ] **Step 3: شريط مؤشرات الثقة والأداء (Trust Metrics: سرعة 100/100، توافق موبايل، التزام كامل)**
-- [ ] **Step 4: إضافة حركات ظهور متدرجة خفيفة عبر `framer-motion`**
-- [ ] **Step 5: Commit لمكون الـ Hero**
+- [x] **Step 3: شريط مؤشرات الثقة والأداء (Trust Metrics: سرعة 100/100، توافق موبايل، التزام كامل)**
+- [x] **Step 4: إضافة حركات ظهور متدرجة خفيفة عبر `framer-motion`**
+- [x] **Step 5: Commit لمكون الـ Hero**
 ```bash
 git add components/Hero.tsx && git commit -m "feat: implement hero section with client-focused copy and dual CTAs"
 ```

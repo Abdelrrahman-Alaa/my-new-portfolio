@@ -58,13 +58,23 @@
 
 ---
 
+- [x] **Task 6: Hero Section (DONE & COMMITTED - commit 6a2224e)**
+  - Built `components/Hero.tsx` with high-impact customer-focused copy and terracotta highlight.
+  - Implemented Dual CTAs: Primary "استعرض الأعمال والنتائج" + WhatsApp direct chat with prefilled message.
+  - Integrated 3 trust metric cards (100/100 Lighthouse, 100% Mobile, 0 Delays) with Lucide icons.
+  - Added subtle, high-performance Framer Motion stagger animations with `useReducedMotion()` fallback.
+  - Verified across Desktop, Mobile, RTL, LTR, Light, and Dark modes.
+  - Production static build `pnpm run build` succeeds cleanly with zero errors.
+
+---
+
 ## 3. Immediate Next Task
-- [ ] **Task 6: Hero Section (READY TO START PENDING USER CONFIRMATION)**
-  - Create `components/Hero.tsx` with customer-focused headline, value proposition, and trust metrics.
-  - Implement Dual CTAs: Primary "استعرض أعمالي" (smooth scroll) + Secondary "محادثة سريعة عبر واتساب".
-  - Integrate trust metric cards (100/100 Lighthouse, 100% Mobile, 0 Delays).
-  - Add tasteful, subtle Framer Motion micro-animations respecting reduced motion.
-  - Commit and request user review before proceeding to Task 7.
+- [ ] **Task 7: Projects Showcase (READY TO START PENDING USER CONFIRMATION)**
+  - Build filterable projects showcase in `components/Projects.tsx` (All, E-Commerce, Corporate, Apps).
+  - Create project cards with business impact metrics, tech tags, live demo links, and modal preview details.
+  - Checkpoint with user on presentation details (Modal vs inline expandable).
+  - Verify layout on mobile & desktop, filter responsiveness, and RTL direction.
+  - Commit and request user review before proceeding to Task 8.
 
 ---
 
