@@ -141,6 +141,28 @@ export function About() {
             </div>
           </div>
 
+          {/* Workspace & Engineering Rig Visual */}
+          <div className="relative aspect-21/9 sm:aspect-24/9 w-full rounded-2xl overflow-hidden bg-canvas border border-border-subtle group">
+            <img
+              src="/images/workspace.jpg"
+              alt="Engineering Workspace Setup"
+              className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-103"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
+            <div className="absolute bottom-2.5 inset-x-3.5 flex items-center justify-between text-white text-xs font-semibold">
+              <span className="flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-terracotta" />
+                {locale === "ar"
+                  ? "بيئة عمل وتطوير مكرسة للإتقان والسرعة"
+                  : "Dedicated setup built for high focus & velocity"}
+              </span>
+              <span className="text-[10px] font-mono text-white/80 bg-black/50 px-2 py-0.5 rounded-md border border-white/20">
+                Setup & Rig
+              </span>
+            </div>
+          </div>
+
           {/* Commitments Bar */}
           <div className="pt-4 border-t border-border-subtle grid grid-cols-1 sm:grid-cols-2 gap-2.5">
             {[

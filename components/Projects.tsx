@@ -155,33 +155,52 @@ export function Projects() {
                 transition={{ duration: 0.3 }}
                 className="group flex flex-col justify-between rounded-3xl bg-surface border border-border-subtle shadow-xs hover:border-terracotta/40 hover:shadow-md transition-all overflow-hidden"
               >
-                {/* Project Header Banner Preview */}
-                <div className="relative p-6 bg-gradient-to-br from-surface-hover via-canvas to-surface border-b border-border-subtle space-y-4">
-                  {/* Category & Featured Badge */}
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="text-xs font-bold uppercase tracking-wider text-terracotta px-2.5 py-1 rounded-lg bg-terracotta/10 border border-terracotta/20">
+                {/* Project Header Image & Preview Frame */}
+                <div
+                  onClick={() => setSelectedProject(project)}
+                  className="relative aspect-16/10 w-full overflow-hidden bg-canvas border-b border-border-subtle cursor-pointer group/img"
+                >
+                  <img
+                    src={project.image}
+                    alt={t(project.title)}
+                    className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+
+                  {/* Category & Featured Badge overlay */}
+                  <div className="absolute top-3.5 inset-x-3.5 flex items-center justify-between gap-2 z-10">
+                    <span className="text-xs font-bold uppercase tracking-wider text-white px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md border border-white/20 shadow-xs">
                       {project.category}
                     </span>
 
                     {/* Primary Highlight Metric Pill */}
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface border border-border-subtle shadow-2xs text-xs font-extrabold text-primary-text font-jakarta">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 shadow-xs text-xs font-extrabold text-white font-jakarta">
                       <TrendingUp className="w-3.5 h-3.5 text-whatsapp" />
                       <span>{primaryMetric.value}</span>
-                      <span className="text-[11px] text-secondary-text font-normal">
+                      <span className="text-[11px] text-white/80 font-normal">
                         {t(primaryMetric.label)}
                       </span>
                     </div>
                   </div>
 
-                  {/* Title & Tagline */}
-                  <div className="space-y-1.5 pt-2">
-                    <h3 className="text-xl sm:text-2xl font-extrabold text-primary-text group-hover:text-terracotta transition-colors">
-                      {t(project.title)}
-                    </h3>
-                    <p className="text-sm font-medium text-secondary-text">
-                      {t(project.tagline)}
-                    </p>
+                  {/* Interactive Quick View Overlay on Hover */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/95 text-obsidian text-xs font-bold shadow-lg backdrop-blur-xs transform translate-y-1 group-hover:translate-y-0 transition-transform">
+                      <Eye className="w-3.5 h-3.5 text-terracotta" />
+                      {locale === "ar" ? "استعراض دراسة الحالة" : "Explore Case Study"}
+                    </span>
                   </div>
+                </div>
+
+                {/* Title & Tagline */}
+                <div className="p-6 border-b border-border-subtle space-y-1.5">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-primary-text group-hover:text-terracotta transition-colors">
+                    {t(project.title)}
+                  </h3>
+                  <p className="text-sm font-medium text-secondary-text">
+                    {t(project.tagline)}
+                  </p>
                 </div>
 
                 {/* Project Body */}
@@ -290,6 +309,15 @@ export function Projects() {
                 >
                   <X className="w-5 h-5" />
                 </button>
+              </div>
+
+              {/* Project Visual Mockup Banner */}
+              <div className="relative aspect-16/9 w-full rounded-2xl overflow-hidden bg-canvas border border-border-subtle shadow-inner">
+                <img
+                  src={selectedProject.image}
+                  alt={t(selectedProject.title)}
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
 
               {/* Business Impact Metrics Grid */}

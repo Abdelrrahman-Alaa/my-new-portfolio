@@ -12,7 +12,6 @@ import {
   Check,
   Clock,
   Globe2,
-  Sparkles,
   Send,
   ArrowUpRight,
 } from "lucide-react";
@@ -80,7 +79,7 @@ export function Contact() {
             role="alert"
           >
             <div className="w-5 h-5 rounded-full bg-whatsapp flex items-center justify-center text-white">
-              <Check className="w-3 h-3 stroke-[3]" />
+              <Check className="w-3 h-3 stroke-3" />
             </div>
             <span>
               {locale === "ar"
@@ -124,7 +123,7 @@ export function Contact() {
         >
           {/* Subtle Ambient Background Accent */}
           <div
-            className="absolute top-0 right-0 w-64 h-64 bg-whatsapp/5 rounded-full blur-3xl -z-0 pointer-events-none"
+            className="absolute top-0 right-0 w-64 h-64 bg-whatsapp/5 rounded-full blur-3xl z-0 pointer-events-none"
             aria-hidden="true"
           />
 

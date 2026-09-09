@@ -10,6 +10,8 @@ export const portfolioData: PortfolioData = {
       ar: "مهندس برمجيات ومطور واجهات وتطبيقات ويب سريعة",
       en: "Full-Stack Software Engineer & High-Performance Web Developer",
     },
+    avatar: "/images/avatar.jpg",
+    workspaceImage: "/images/workspace.jpg",
     heroBadge: {
       ar: "متاح للعمل على مشاريع جديدة وفورية",
       en: "Available for new projects & partnerships",
@@ -191,8 +193,14 @@ export const portfolioData: PortfolioData = {
         en: "Designed and developed a luxury fragrance shop delivering a frictionless shopping experience. Features an intelligent cart that compiles order details and addresses into an instant WhatsApp message.",
       },
       category: "ecommerce",
-      image: "/projects/rawasi.webp",
-      tags: ["Next.js", "TypeScript", "Tailwind CSS", "WhatsApp API", "Framer Motion"],
+      image: "/images/project-rawasi.jpg",
+      tags: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "WhatsApp API",
+        "Framer Motion",
+      ],
       metrics: [
         {
           value: "+48%",
@@ -235,7 +243,7 @@ export const portfolioData: PortfolioData = {
         en: "Engineered a corporate portal for an architecture & engineering firm, featuring a filterable interactive portfolio of completed megaprojects and a pre-qualification consultation scheduler.",
       },
       category: "corporate",
-      image: "/projects/binaa.webp",
+      image: "/images/project-binaa.jpg",
       tags: ["Next.js", "Tailwind CSS", "TypeScript", "SEO Optimization"],
       metrics: [
         {
@@ -279,7 +287,7 @@ export const portfolioData: PortfolioData = {
         en: "Full-fledged clinic management application enabling patients to book visits in seconds with automated WhatsApp confirmations, while providing practitioners with conflict-free schedules.",
       },
       category: "apps",
-      image: "/projects/shifa.webp",
+      image: "/images/project-shifa.jpg",
       tags: ["React", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS"],
       metrics: [
         {
@@ -323,8 +331,14 @@ export const portfolioData: PortfolioData = {
         en: "B2B wholesale portal enabling retailers to explore volume-tiered pricing, assemble bulk orders seamlessly, and auto-generate branded quotation PDFs with real-time stock sync.",
       },
       category: "ecommerce",
-      image: "/projects/jazl.webp",
-      tags: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind CSS", "PDF Engine"],
+      image: "/images/project-jazl.jpg",
+      tags: [
+        "Next.js",
+        "TypeScript",
+        "PostgreSQL",
+        "Tailwind CSS",
+        "PDF Engine",
+      ],
       metrics: [
         {
           value: "65%",
@@ -452,11 +466,19 @@ export const portfolioData: PortfolioData = {
       },
       skills: [
         { name: "React 19", level: "خبير • Expert", tag: "Core" },
-        { name: "Next.js (App Router)", level: "خبير • Expert", tag: "Framework" },
+        {
+          name: "Next.js (App Router)",
+          level: "خبير • Expert",
+          tag: "Framework",
+        },
         { name: "TypeScript", level: "متقدم • Advanced", tag: "Language" },
         { name: "Tailwind CSS v4", level: "خبير • Expert", tag: "Styling" },
         { name: "Framer Motion", level: "متقدم • Advanced", tag: "Animation" },
-        { name: "HTML5 / Semantic SEO", level: "خبير • Expert", tag: "Standards" },
+        {
+          name: "HTML5 / Semantic SEO",
+          level: "خبير • Expert",
+          tag: "Standards",
+        },
       ],
     },
     {
@@ -474,8 +496,16 @@ export const portfolioData: PortfolioData = {
         { name: "RESTful APIs", level: "خبير • Expert", tag: "Architecture" },
         { name: "PostgreSQL", level: "متقدم • Advanced", tag: "Database" },
         { name: "Supabase", level: "متقدم • Advanced", tag: "BaaS" },
-        { name: "Redis Caching", level: "متوسط • Intermediate", tag: "Performance" },
-        { name: "Authentication & JWT", level: "متقدم • Advanced", tag: "Security" },
+        {
+          name: "Redis Caching",
+          level: "متوسط • Intermediate",
+          tag: "Performance",
+        },
+        {
+          name: "Authentication & JWT",
+          level: "متقدم • Advanced",
+          tag: "Security",
+        },
       ],
     },
     {
@@ -490,11 +520,23 @@ export const portfolioData: PortfolioData = {
       },
       skills: [
         { name: "Git & GitHub", level: "خبير • Expert", tag: "VCS" },
-        { name: "pnpm / modern monorepos", level: "خبير • Expert", tag: "Tooling" },
+        {
+          name: "pnpm / modern monorepos",
+          level: "خبير • Expert",
+          tag: "Tooling",
+        },
         { name: "Vercel / Cloudflare", level: "خبير • Expert", tag: "Cloud" },
-        { name: "Lighthouse Optimization", level: "خبير • Expert", tag: "Speed" },
+        {
+          name: "Lighthouse Optimization",
+          level: "خبير • Expert",
+          tag: "Speed",
+        },
         { name: "Docker basics", level: "متوسط • Intermediate", tag: "DevOps" },
-        { name: "Postman / API Testing", level: "متقدم • Advanced", tag: "Testing" },
+        {
+          name: "Postman / API Testing",
+          level: "متقدم • Advanced",
+          tag: "Testing",
+        },
       ],
     },
   ],

@@ -68,6 +68,8 @@ export interface NavigationItem {
 
 export interface DeveloperProfile {
   name: LocalizedString;
+  avatar?: string;
+  workspaceImage?: string;
   title: LocalizedString;
   heroBadge: LocalizedString;
   heroHeading: LocalizedString;
