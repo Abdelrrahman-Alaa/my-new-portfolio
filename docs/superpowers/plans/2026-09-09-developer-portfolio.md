@@ -201,10 +201,10 @@ git add components/About.tsx && git commit -m "feat: implement about me and cate
 - Create: `components/Contact.tsx`
 - Create: `components/Footer.tsx`
 
-- [ ] **Step 1: تصميم كارت الواتساب البارز مع مؤشر التواجد المباشر (Active Status Dot)**
-- [ ] **Step 2: إضافة زر نسخ الإيميل بنقرة واحدة مع إشعار Toast منبثق لطيف**
-- [ ] **Step 3: بناء الفوتر مع الروابط المهنية (LinkedIn, GitHub) وحقوق الموقع**
-- [ ] **Step 4: Commit لقسم التواصل والفوتر**
+- [x] **Step 1: تصميم كارت الواتساب البارز مع مؤشر التواجد المباشر (Active Status Dot)**
+- [x] **Step 2: إضافة زر نسخ الإيميل بنقرة واحدة مع إشعار Toast منبثق لطيف**
+- [x] **Step 3: بناء الفوتر مع الروابط المهنية (LinkedIn, GitHub) وحقوق الموقع**
+- [x] **Step 4: Commit لقسم التواصل والفوتر**
 ```bash
 git add components/Contact.tsx components/Footer.tsx && git commit -m "feat: build high-converting contact section and footer"
 ```
