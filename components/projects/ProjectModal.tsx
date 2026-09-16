@@ -84,7 +84,7 @@ export function ProjectModal({ project, profile, onClose }: ProjectModalProps) {
           </div>
 
           {/* Project Visual Mockup Banner */}
-          <div className="relative aspect-16/9 w-full rounded-2xl overflow-hidden bg-canvas border border-border-subtle shadow-inner">
+          <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-canvas border border-border-subtle shadow-inner">
             <Image
               src={project.image}
               alt={t(project.title)}
