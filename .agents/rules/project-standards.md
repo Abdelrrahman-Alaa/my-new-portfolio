@@ -41,3 +41,24 @@ This rulebook is the localized engineering standard for this portfolio project. 
   - Run `npm run build` to verify type safety and compilation.
   - Run `npm run lint` to verify code quality.
   - Zero tolerance for broken build or unresolved lint errors.
+  - Never declare done or make assertions without command output evidence.
+
+---
+
+## 5. TypeScript Strictness: Zero `any` Policy
+- Strictly forbidden to use `any` or `as unknown as Type`.
+- Model domain structures explicitly using strict interfaces and types.
+- Use runtime type guards or Zod schemas for dynamic external inputs.
+
+---
+
+## 6. Conventional Commits Standard
+- All Git commits must follow the Conventional Commits format (`feat:`, `fix:`, `refactor:`, `docs:`, `perf:`, `test:`, `chore:`).
+- Clear, descriptive subject line and itemized body.
+
+---
+
+## 7. Security & Secrets
+- Never commit credentials, sensitive numbers, or API keys directly in code.
+- Place local variables in `.env.local` and verify `.gitignore` excludes them.
+
