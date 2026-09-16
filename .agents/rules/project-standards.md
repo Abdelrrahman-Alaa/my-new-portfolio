@@ -1,0 +1,43 @@
+# Project Standards: Portfolio (Next.js 16 + React 19 + Tailwind v4)
+
+This rulebook is the localized engineering standard for this portfolio project. All agent interactions and code generation must strictly follow these rules.
+
+---
+
+## 1. Architecture & Organization
+- **Pattern:** Section-Based Component Architecture (Orchestrator + Sub-components).
+- **Component File Structure:**
+  - `components/<section>/`: Contains focused sub-components and cards (each under 100-150 lines).
+  - `components/<Section>.tsx`: Thin orchestrator coordinating layout, motion, and data.
+  - `components/index.ts`: Barrel export for clean external imports.
+- **Data Layer:**
+  - Domain-divided under `data/` (`profile.ts`, `projects.ts`, `services.ts`, `skills.ts`, `navigation.ts`).
+  - Unified aggregate exported via `data/index.ts` and `data/portfolio.ts`.
+- **Logic & Hooks:**
+  - Non-rendering behavior (focus trapping, scroll listeners, clipboard) lives in `hooks/`.
+
+---
+
+## 2. Styling & Tailwind CSS v4 Standards
+- **Version:** Tailwind CSS v4.
+- **Strict Rule on Arbitrary Values:**
+  - NEVER use arbitrary pixel values like `min-h-[44px]` or `min-w-[44px]` when standard scale utilities exist (`min-h-11`, `min-w-11`).
+  - Use standard spacing and scale numbers (1 = 4px, 2 = 8px, 4 = 16px, 11 = 44px, etc.).
+- **Tailwind v4 Specific Syntax:**
+  - Use `bg-linear-to-*` instead of deprecated v3 `bg-gradient-to-*`.
+  - Use `stroke-3` instead of `stroke-[3]`.
+  - Semantic variables are defined via `@theme` in `app/globals.css`. Never hardcode colors when a theme token exists (`var(--color-terracotta)`, `bg-surface`, `text-primary-text`).
+
+---
+
+## 3. Library & Dependency Rules
+- **No Unapproved Installs:** Do NOT install any third-party library or npm package without proposing it, explaining why, and getting explicit user approval.
+- **Zero-Dependency First:** Prefer native Web APIs or small internal utilities before reaching for an external package.
+
+---
+
+## 4. Code Quality & Verification
+- Prior to completing any change or refactor:
+  - Run `npm run build` to verify type safety and compilation.
+  - Run `npm run lint` to verify code quality.
+  - Zero tolerance for broken build or unresolved lint errors.
