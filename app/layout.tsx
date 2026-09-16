@@ -17,53 +17,53 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://abdelrahman-alaa.dev";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://abdelrahman-alaa.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "عبدالرحمن | مهندس برمجيات ومطور Full-stack",
-    template: "%s | عبدالرحمن",
+    default: "Abdelrahman Alaa | Web Developer",
+    template: "%s | Abdelrahman Alaa",
   },
   description:
-    "بورتفوليو احترافي لمطور ويب Full-stack متخصص في بناء واجهات وتطبيقات رقمية سريعة وعالية التحويل لأصحاب الأعمال والشركات.",
+    "Portfolio of Abdelrahman Alaa - Web Developer specializing in crafting fast, responsive, and modern web applications with React, Next.js, and TypeScript.",
   keywords: [
-    "Software Engineer",
-    "Full-Stack Developer",
+    "Abdelrahman Alaa",
+    "Web Developer",
+    "Frontend Developer",
     "Next.js Developer",
     "React Developer",
-    "مطور ويب",
-    "مهندس برمجيات",
-    "تطوير مواقع",
-    "متاجر إلكترونية",
+    "TypeScript",
     "Tailwind CSS",
+    "Web Development",
+    "Portfolio",
   ],
   authors: [{ name: "Abdelrahman Alaa", url: "https://github.com/Abdelrrahman-Alaa" }],
   creator: "Abdelrahman Alaa",
   openGraph: {
     type: "website",
-    locale: "ar",
-    alternateLocale: "en",
+    locale: "en_US",
+    alternateLocale: ["ar"],
     url: siteUrl,
-    title: "عبدالرحمن | مهندس برمجيات ومطور Full-stack",
+    title: "Abdelrahman Alaa | Web Developer",
     description:
-      "بورتفوليو احترافي لمطور ويب Full-stack متخصص في بناء واجهات وتطبيقات رقمية سريعة وعالية التحويل لأصحاب الأعمال والشركات.",
-    siteName: "Abdelrahman Portfolio",
+      "Portfolio of Abdelrahman Alaa - Web Developer specializing in crafting fast, responsive, and modern web applications with React, Next.js, and TypeScript.",
+    siteName: "Abdelrahman Alaa Portfolio",
     images: [
       {
-        url: "/images/hero.webp",
-        width: 1200,
-        height: 630,
-        alt: "عبدالرحمن - مهندس برمجيات ومطور واجهات ويب",
+        url: "/images/avatar.webp",
+        width: 800,
+        height: 800,
+        alt: "Abdelrahman Alaa - Web Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "عبدالرحمن | مهندس برمجيات ومطور Full-stack",
+    title: "Abdelrahman Alaa | Web Developer",
     description:
-      "بورتفوليو احترافي لمطور ويب Full-stack متخصص في بناء واجهات وتطبيقات رقمية سريعة وعالية التحويل لأصحاب الأعمال والشركات.",
-    images: ["/images/hero.webp"],
+      "Portfolio of Abdelrahman Alaa - Web Developer specializing in crafting fast, responsive, and modern web applications with React, Next.js, and TypeScript.",
+    images: ["/images/avatar.webp"],
   },
   robots: {
     index: true,
@@ -78,7 +78,7 @@ const jsonLd = {
   alternateName: "عبدالرحمن",
   url: siteUrl,
   image: `${siteUrl}/images/avatar.webp`,
-  jobTitle: "Full-Stack Software Engineer",
+  jobTitle: "Web Developer",
   sameAs: [
     "https://github.com/Abdelrrahman-Alaa",
     "https://www.linkedin.com/in/abdelrrahman-alaa/",
@@ -88,8 +88,8 @@ const jsonLd = {
     "Next.js",
     "TypeScript",
     "Tailwind CSS",
-    "Node.js",
-    "PostgreSQL",
+    "JavaScript",
+    "Modern Web Development",
     "Web Performance Optimization",
   ],
 };
