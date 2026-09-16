@@ -51,7 +51,7 @@ export function EmailCard({ profile, copied, onCopy, variants }: EmailCardProps)
             <button
               onClick={onCopy}
               id="copy-email-btn"
-              className="shrink-0 w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-surface hover:bg-surface-hover text-secondary-text hover:text-terracotta border border-border-subtle transition-colors cursor-pointer"
+              className="shrink-0 w-11 h-11 min-w-11 min-h-11 flex items-center justify-center rounded-xl bg-surface hover:bg-surface-hover text-secondary-text hover:text-terracotta border border-border-subtle transition-colors cursor-pointer"
               title={locale === "ar" ? "نسخ البريد" : "Copy email address"}
               aria-label="Copy email"
             >
@@ -65,7 +65,7 @@ export function EmailCard({ profile, copied, onCopy, variants }: EmailCardProps)
 
           <button
             onClick={onCopy}
-            className="w-full py-2.5 px-3 rounded-xl bg-surface-hover hover:bg-border-subtle text-primary-text text-xs font-bold transition-colors cursor-pointer border border-border-subtle flex items-center justify-center gap-2 min-h-[44px]"
+            className="w-full py-2.5 px-3 rounded-xl bg-surface-hover hover:bg-border-subtle text-primary-text text-xs font-bold transition-colors cursor-pointer border border-border-subtle flex items-center justify-center gap-2 min-h-11"
           >
             {copied ? (
               <>

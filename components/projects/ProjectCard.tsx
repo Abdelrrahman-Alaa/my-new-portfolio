@@ -36,7 +36,7 @@ export function ProjectCard({ project, onOpenModal }: ProjectCardProps) {
           className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/75 via-black/20 to-transparent" />
 
         {/* Category & Featured Badge overlay */}
         <div className="absolute top-3.5 inset-x-3.5 flex items-center justify-between gap-2 z-10">

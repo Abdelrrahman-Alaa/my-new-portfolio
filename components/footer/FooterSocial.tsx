@@ -31,7 +31,7 @@ export function FooterSocial({ profile }: FooterSocialProps) {
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-canvas border border-border-subtle text-secondary-text hover:text-whatsapp hover:border-whatsapp/40 transition-colors shadow-2xs"
+          className="w-11 h-11 min-w-11 min-h-11 flex items-center justify-center rounded-xl bg-canvas border border-border-subtle text-secondary-text hover:text-whatsapp hover:border-whatsapp/40 transition-colors shadow-2xs"
           title="WhatsApp"
           aria-label="WhatsApp"
         >
@@ -43,7 +43,7 @@ export function FooterSocial({ profile }: FooterSocialProps) {
             href={profile.contact.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-canvas border border-border-subtle text-secondary-text hover:text-primary-text hover:border-border transition-colors shadow-2xs"
+            className="w-11 h-11 min-w-11 min-h-11 flex items-center justify-center rounded-xl bg-canvas border border-border-subtle text-secondary-text hover:text-primary-text hover:border-border transition-colors shadow-2xs"
             title="GitHub"
             aria-label="GitHub"
           >
@@ -56,7 +56,7 @@ export function FooterSocial({ profile }: FooterSocialProps) {
             href={profile.contact.linkedinUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-canvas border border-border-subtle text-secondary-text hover:text-primary-text hover:border-border transition-colors shadow-2xs"
+            className="w-11 h-11 min-w-11 min-h-11 flex items-center justify-center rounded-xl bg-canvas border border-border-subtle text-secondary-text hover:text-primary-text hover:border-border transition-colors shadow-2xs"
             title="LinkedIn"
             aria-label="LinkedIn"
           >
@@ -66,7 +66,7 @@ export function FooterSocial({ profile }: FooterSocialProps) {
 
         <a
           href={`mailto:${profile.contact.email}`}
-          className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-canvas border border-border-subtle text-secondary-text hover:text-terracotta hover:border-terracotta/40 transition-colors shadow-2xs"
+          className="w-11 h-11 min-w-11 min-h-11 flex items-center justify-center rounded-xl bg-canvas border border-border-subtle text-secondary-text hover:text-terracotta hover:border-terracotta/40 transition-colors shadow-2xs"
           title={profile.contact.email}
           aria-label="Email"
         >
