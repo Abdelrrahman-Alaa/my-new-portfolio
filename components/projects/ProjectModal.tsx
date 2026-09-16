@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { Project, DeveloperProfile } from "@/types/portfolio";
@@ -84,10 +85,12 @@ export function ProjectModal({ project, profile, onClose }: ProjectModalProps) {
 
           {/* Project Visual Mockup Banner */}
           <div className="relative aspect-16/9 w-full rounded-2xl overflow-hidden bg-canvas border border-border-subtle shadow-inner">
-            <img
+            <Image
               src={project.image}
               alt={t(project.title)}
-              className="w-full h-full object-cover object-top"
+              fill
+              className="object-cover object-top"
+              sizes="(max-width: 768px) 100vw, 700px"
             />
           </div>
 

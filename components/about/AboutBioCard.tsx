@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { DeveloperProfile } from "@/types/portfolio";
@@ -34,11 +35,12 @@ export function AboutBioCard({ profile, variants }: AboutBioCardProps) {
 
       {/* Workspace Visual */}
       <div className="relative aspect-21/9 sm:aspect-24/9 w-full rounded-2xl overflow-hidden bg-canvas border border-border-subtle group">
-        <img
+        <Image
           src={profile.workspaceImage || "/images/workspace.webp"}
           alt="Engineering Workspace Setup"
-          className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-103"
-          loading="lazy"
+          fill
+          className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-103"
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
         <div className="absolute bottom-2.5 inset-x-3.5 flex items-center justify-between text-white text-xs font-semibold">

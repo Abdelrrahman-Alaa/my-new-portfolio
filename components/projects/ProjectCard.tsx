@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { Project } from "@/types/portfolio";
@@ -30,11 +31,12 @@ export function ProjectCard({ project, onOpenModal }: ProjectCardProps) {
         onClick={(e) => onOpenModal(project, e)}
         className="relative aspect-16/10 w-full overflow-hidden bg-canvas border-b border-border-subtle cursor-pointer group/img"
       >
-        <img
+        <Image
           src={project.image}
           alt={t(project.title)}
-          className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
-          loading="lazy"
+          fill
+          className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/75 via-black/20 to-transparent" />
 

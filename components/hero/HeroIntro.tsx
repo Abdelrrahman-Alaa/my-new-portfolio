@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { DeveloperProfile } from "@/types/portfolio";
@@ -20,9 +21,11 @@ export function HeroIntro({ profile, whatsappUrl, itemVariants }: HeroIntroProps
       {/* Personal Intro & Availability Header */}
       <motion.div variants={itemVariants} className="flex items-center gap-2.5 sm:gap-3">
         <div className="relative shrink-0">
-          <img
+          <Image
             src={profile.avatar || "/images/avatar.webp"}
             alt={t(profile.name)}
+            width={44}
+            height={44}
             className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover ring-2 ring-terracotta/30 shadow-xs"
           />
         </div>

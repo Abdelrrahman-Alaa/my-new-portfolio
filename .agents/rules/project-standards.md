@@ -62,3 +62,24 @@ This rulebook is the localized engineering standard for this portfolio project. 
 - Never commit credentials, sensitive numbers, or API keys directly in code.
 - Place local variables in `.env.local` and verify `.gitignore` excludes them.
 
+---
+
+## 8. Image & Asset Optimization (Web Vitals)
+- Use Next.js `<Image />` for all raster assets instead of plain `<img>`.
+- Add `priority` to above-the-fold Hero visuals for fast LCP.
+- Use explicit `width`/`height` or `fill` with parent aspect ratio.
+
+---
+
+## 9. Pragmatic Simplicity (YAGNI & KISS)
+- Do not build speculative abstractions or premature generalizations.
+- Code should be clean, readable, and direct.
+
+---
+
+## 10. Interactive States & Accessibility (a11y)
+- All interactive controls must support `:hover`, `:active`, and visible `:focus-visible`.
+- Touch targets must adhere to min 44x44px (`min-h-11 min-w-11`).
+- Respect `useReducedMotion` preferences.
+
+
