@@ -28,54 +28,23 @@
   --color-muted-text: var(--text-muted);
 }
 
-/* Default: Original Terracotta */
+/* Default Theme: Cobalt Slate (Deep Engineering Cobalt & Cool Gray Canvas in Light / GitHub Dark) */
 :root {
-  --bg-canvas: #F7F5F0;
+  --bg-canvas: #F6F8FA;
   --bg-surface: #FFFFFF;
-  --bg-surface-hover: #F2EFE8;
-  --border-subtle: #E8E4DC;
-  --border-hover: #D8D2C7;
-  --text-primary: #1A1A1A;
-  --text-secondary: #4A4A4A;
-  --text-muted: #737373;
-  --accent-primary: #C26D53;
-  --accent-hover: #AB5A42;
-  --accent-light: #F8EBE7;
-  --accent-dark: #A14B35;
+  --bg-surface-hover: #F3F4F6;
+  --border-subtle: #D0D7DE;
+  --border-hover: #AFB8C1;
+  --text-primary: #1F2328;
+  --text-secondary: #59636E;
+  --text-muted: #8C959F;
+  --accent-primary: #0969DA;
+  --accent-hover: #0860CA;
+  --accent-light: #DDF4FF;
+  --accent-dark: #054DA7;
 }
 
 .dark {
-  --bg-canvas: #111318;
-  --bg-surface: #181B22;
-  --bg-surface-hover: #20242E;
-  --border-subtle: #262A35;
-  --border-hover: #373C4B;
-  --text-primary: #F7F5F0;
-  --text-secondary: #A3A8B5;
-  --text-muted: #717684;
-  --accent-primary: #C26D53;
-  --accent-hover: #AB5A42;
-  --accent-light: #2A1D1A;
-  --accent-dark: #E2886E;
-}
-
-/* Palette 1: Slate Tech (GitHub / Stripe Style - Non-neon crisp blue & slate) */
-html[data-palette="slate"] {
-  --bg-canvas: #FFFFFF;
-  --bg-surface: #F8FAFC;
-  --bg-surface-hover: #F1F5F9;
-  --border-subtle: #E2E8F0;
-  --border-hover: #CBD5E1;
-  --text-primary: #0F172A;
-  --text-secondary: #475569;
-  --text-muted: #64748B;
-  --accent-primary: #2563EB;
-  --accent-hover: #1D4ED8;
-  --accent-light: #EFF6FF;
-  --accent-dark: #1E40AF;
-}
-
-html[data-palette="slate"].dark {
   --bg-canvas: #0D1117;
   --bg-surface: #161B22;
   --bg-surface-hover: #21262D;
@@ -90,67 +59,6 @@ html[data-palette="slate"].dark {
   --accent-dark: #79C0FF;
 }
 
-/* Palette 2: Pure Minimalist (Swiss Monochrome / Apple Style - Zero color, pure black & white) */
-html[data-palette="minimal"] {
-  --bg-canvas: #FFFFFF;
-  --bg-surface: #FAFAFA;
-  --bg-surface-hover: #F4F4F5;
-  --border-subtle: #E4E4E7;
-  --border-hover: #D4D4D8;
-  --text-primary: #18181B;
-  --text-secondary: #52525B;
-  --text-muted: #71717A;
-  --accent-primary: #18181B;
-  --accent-hover: #27272A;
-  --accent-light: #F4F4F5;
-  --accent-dark: #09090B;
-}
-
-html[data-palette="minimal"].dark {
-  --bg-canvas: #09090B;
-  --bg-surface: #121215;
-  --bg-surface-hover: #18181B;
-  --border-subtle: #27272A;
-  --border-hover: #3F3F46;
-  --text-primary: #FAFAFA;
-  --text-secondary: #A1A1AA;
-  --text-muted: #71717A;
-  --accent-primary: #FAFAFA;
-  --accent-hover: #E4E4E7;
-  --accent-light: #27272A;
-  --accent-dark: #FFFFFF;
-}
-
-/* Palette 3: Nordic Sage (Natural Forest & Earth Stone - Calm & Grounded) */
-html[data-palette="sage"] {
-  --bg-canvas: #FAF9F6;
-  --bg-surface: #FFFFFF;
-  --bg-surface-hover: #F3F1EC;
-  --border-subtle: #E6E4DC;
-  --border-hover: #D7D4C8;
-  --text-primary: #1C1E1B;
-  --text-secondary: #4D524A;
-  --text-muted: #787D75;
-  --accent-primary: #2D5A43;
-  --accent-hover: #224533;
-  --accent-light: #EEF5F1;
-  --accent-dark: #193427;
-}
-
-html[data-palette="sage"].dark {
-  --bg-canvas: #101412;
-  --bg-surface: #181E1B;
-  --bg-surface-hover: #202824;
-  --border-subtle: #2B3530;
-  --border-hover: #3B4942;
-  --text-primary: #F2F4F2;
-  --text-secondary: #9EA6A0;
-  --text-muted: #727A74;
-  --accent-primary: #529E75;
-  --accent-hover: #68B289;
-  --accent-light: #1A2E23;
-  --accent-dark: #3F7E5C;
-}
 
 /* Base Body Styles */
 body {

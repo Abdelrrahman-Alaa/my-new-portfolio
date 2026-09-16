@@ -6,4 +6,3 @@ export { About } from "./About";
 export { Contact } from "./Contact";
 export { Footer } from "./Footer";
 export { Providers } from "./Providers";
-export { ThemePaletteSwitcher } from "./ThemePaletteSwitcher";
