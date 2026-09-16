@@ -1,0 +1,9 @@
+export { Navbar } from "./Navbar";
+export { Hero } from "./Hero";
+export { Projects } from "./Projects";
+export { Services } from "./Services";
+export { About } from "./About";
+export { Contact } from "./Contact";
+export { Footer } from "./Footer";
+export { Providers } from "./Providers";
+export { ThemePaletteSwitcher } from "./ThemePaletteSwitcher";

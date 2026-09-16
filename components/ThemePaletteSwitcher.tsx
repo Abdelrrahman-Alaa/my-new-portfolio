@@ -175,7 +175,7 @@ export function ThemePaletteSwitcher() {
 
                     {isActive && (
                       <span className="w-4 h-4 rounded-full bg-primary-text text-canvas flex items-center justify-center text-[10px]">
-                        <Check className="w-2.5 h-2.5 stroke-[3]" />
+                        <Check className="w-2.5 h-2.5 stroke-3" />
                       </span>
                     )}
                   </div>
