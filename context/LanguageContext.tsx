@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState, useMemo } from "react";
+import React, { createContext, useContext, useEffect, useMemo, useSyncExternalStore, useCallback } from "react";
 import { Locale, LocalizedString } from "@/types/portfolio";
 
 interface LanguageContextType {
@@ -16,45 +16,49 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 const STORAGE_KEY = "portfolio-locale";
 
+function subscribeLocale(callback: () => void) {
+  window.addEventListener("storage", callback);
+  window.addEventListener("portfolio-locale-change", callback);
+  return () => {
+    window.removeEventListener("storage", callback);
+    window.removeEventListener("portfolio-locale-change", callback);
+  };
+}
+
+function getLocaleSnapshot(): Locale {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored === "en" || stored === "ar") return stored;
+  } catch {}
+  return "ar";
+}
+
+function getLocaleServerSnapshot(): Locale {
+  return "ar";
+}
+
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("ar");
-  const [mounted, setMounted] = useState(false);
+  const locale = useSyncExternalStore(subscribeLocale, getLocaleSnapshot, getLocaleServerSnapshot);
 
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY) as Locale | null;
-      if (stored === "en" || stored === "ar") {
-        setLocaleState(stored);
-        document.documentElement.lang = stored;
-        document.documentElement.dir = stored === "ar" ? "rtl" : "ltr";
-      } else {
-        document.documentElement.lang = "ar";
-        document.documentElement.dir = "rtl";
-      }
-    } catch {
-      // Ignore localStorage errors in private browsing
-    }
-    setMounted(true);
-  }, []);
+    document.documentElement.lang = locale;
+    document.documentElement.dir = locale === "ar" ? "rtl" : "ltr";
+  }, [locale]);
 
-  const setLocale = (newLocale: Locale) => {
-    setLocaleState(newLocale);
+  const setLocale = useCallback((newLocale: Locale) => {
     try {
       localStorage.setItem(STORAGE_KEY, newLocale);
-    } catch {
-      // Ignore
-    }
-    document.documentElement.lang = newLocale;
-    document.documentElement.dir = newLocale === "ar" ? "rtl" : "ltr";
-  };
+      window.dispatchEvent(new Event("portfolio-locale-change"));
+    } catch {}
+  }, []);
 
-  const toggleLanguage = () => {
+  const toggleLanguage = useCallback(() => {
     setLocale(locale === "ar" ? "en" : "ar");
-  };
+  }, [locale, setLocale]);
 
-  const t = (localized: LocalizedString): string => {
+  const t = useCallback((localized: LocalizedString): string => {
     return localized[locale] || localized.ar || localized.en || "";
-  };
+  }, [locale]);
 
   const value = useMemo<LanguageContextType>(() => {
     const dir = locale === "ar" ? "rtl" : "ltr";
@@ -66,7 +70,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       toggleLanguage,
       t,
     };
-  }, [locale]);
+  }, [locale, setLocale, toggleLanguage, t]);
 
   return (
     <LanguageContext.Provider value={value}>

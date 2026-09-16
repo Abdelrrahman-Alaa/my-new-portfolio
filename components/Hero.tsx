@@ -167,11 +167,6 @@ export function Hero() {
             variants={itemVariants}
             className="lg:col-span-6 relative flex items-center justify-center w-full"
           >
-            {/* Ambient Radial Color Atmosphere */}
-            <div
-              className="absolute w-[110%] h-[110%] bg-radial from-terracotta/15 via-terracotta/5 to-transparent blur-3xl -z-10 pointer-events-none"
-              aria-hidden="true"
-            />
 
             <motion.div
               animate={

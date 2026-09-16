@@ -121,12 +121,6 @@ export function Contact() {
           variants={itemVariants}
           className="lg:col-span-7 flex flex-col justify-between p-6 sm:p-8 rounded-3xl bg-surface border border-whatsapp/40 ring-1 ring-whatsapp/15 shadow-xs space-y-6 relative overflow-hidden"
         >
-          {/* Subtle Ambient Background Accent */}
-          <div
-            className="absolute top-0 right-0 w-64 h-64 bg-whatsapp/5 rounded-full blur-3xl z-0 pointer-events-none"
-            aria-hidden="true"
-          />
-
           <div className="space-y-5 relative z-10">
             {/* Live Active Status Dot */}
             <div className="flex flex-wrap items-center justify-between gap-3">
